@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.view.LoginActivity"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:background="@color/splashScreen">
+
+    <ImageView
+        android:id="@+id/imgLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="40"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/edtEmailLogin"
+        android:layout_width="@dimen/text_login"
+        android:layout_gravity="center"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:layout_margin="@dimen/spaceBetween"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textEmailAddress"
+        android:fontFamily="@string/font_family"
+        android:textStyle="bold"
+        android:textSize="@dimen/header"
+        android:hint="@string/login_email" />
+
+    <EditText
+        android:id="@+id/edtPasswordLogin"
+        android:layout_width="@dimen/text_login"
+        android:layout_gravity="center"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:ems="10"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:fontFamily="@string/font_family"
+        android:textStyle="bold"
+        android:textSize="@dimen/header"
+        android:hint="@string/login_password" />
+
+    <Button
+        android:id="@+id/btLogin"
+        android:layout_width="@dimen/text_login"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/spaceBetween"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:backgroundTint="@color/button"
+        android:textSize="@dimen/header"
+        android:textStyle="bold"
+        android:text="@string/login_button" />
+
+
+</LinearLayout>

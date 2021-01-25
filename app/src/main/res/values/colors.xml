@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="splashScreen">#e0e0e0</color>
+    <color name="row">#f5f5f5</color>
+    <color name="name_hotel">#1976D2</color>
+    <color name="detail_cost">#C2185B</color>
+    <color name="detail_booked">#4CAF50</color>
+    <color name="button">#00BCD4</color>
+    <color name="logo_booking">#003580</color>
+    <color name="back_search">#FFC107</color>
+    <color name="gold">#FBC02D</color>
+</resources>

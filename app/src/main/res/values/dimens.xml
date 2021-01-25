@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spaceBetween">10dp</dimen>
+    <dimen name="row_padding">8dp</dimen>
+    <dimen name="header">22dp</dimen>
+    <dimen name="header_">18dp</dimen>
+    <dimen name="body">15dp</dimen>
+    <dimen name="textResume">20dp</dimen>
+    <dimen name="splashText">70dp</dimen>
+    <dimen name="button">200dp</dimen>
+    <dimen name="book_room_button">300dp</dimen>
+    <dimen name="text_login">300dp</dimen>
+    <dimen name="font_size_button">20dp</dimen>
+    <dimen name="search">50dp</dimen>
+</resources>

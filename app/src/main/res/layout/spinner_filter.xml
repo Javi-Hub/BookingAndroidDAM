@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckedTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@android:id/text2"
+    android:singleLine="true"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:ellipsize="marquee"
+    android:textColor="@color/white"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/spaceBetween"
+    android:textSize="@dimen/header_"
+    android:textStyle="bold"
+    android:background="@color/logo_booking"
+    tools:text="Spinner" />

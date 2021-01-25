@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/rowRoom"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:weightSum="100"
+    android:background="@color/row"
+    android:padding="5dp"
+    android:layout_marginBottom="5dp">
+
+    <ImageView
+        android:id="@+id/imgPhotoRoom"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="35"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="65"
+        android:weightSum="100"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtHotelRoom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="30"
+            android:fontFamily="@string/font_family"
+            android:gravity="center_vertical"
+            android:padding="@dimen/row_padding"
+            android:text="@string/hotel_name"
+            android:textSize="@dimen/header"
+            android:textColor="@color/name_hotel"/>
+
+        <TextView
+            android:id="@+id/txtCityRoom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:fontFamily="@string/font_family"
+            android:paddingLeft="@dimen/spaceBetween"
+            android:gravity="center_vertical"
+            android:text="@string/hotel_city"
+            android:textSize="@dimen/body"
+            android:textColor="@color/button"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="30"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/txtAvailableRoom"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:fontFamily="@string/font_family"
+                    android:text="@string/detail_room_available"
+                    android:paddingLeft="@dimen/row_padding"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/txtRoomCapacity"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:textColor="@color/black"
+                        android:fontFamily="@string/font_family"
+                        android:text="@string/detail_room_capacity"
+                        android:paddingLeft="@dimen/row_padding"/>
+
+                    <TextView
+                        android:id="@+id/txtCapacityRoom"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/black"
+                        android:fontFamily="@string/font_family"
+                        android:paddingLeft="@dimen/row_padding"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/txtRoomNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/black"
+                        android:fontFamily="@string/font_family"
+                        android:text="@string/detail_room_number"
+                        android:paddingLeft="@dimen/row_padding"/>
+
+                    <TextView
+                        android:id="@+id/txtNumberRoom"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:textColor="@color/black"
+                        android:fontFamily="@string/font_family"
+                        android:paddingLeft="@dimen/row_padding"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/txtRoomPrize"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:fontFamily="@string/font_family"
+                        android:text="@string/room_prize"
+                        android:paddingLeft="@dimen/row_padding"/>
+
+                    <TextView
+                        android:id="@+id/txtPrizeRoom"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:fontFamily="@string/font_family"
+                        android:paddingLeft="@dimen/row_padding"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="@dimen/button"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/row_padding"
+            android:background="@color/button"
+            android:text="@string/detail_room_button"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/header_"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

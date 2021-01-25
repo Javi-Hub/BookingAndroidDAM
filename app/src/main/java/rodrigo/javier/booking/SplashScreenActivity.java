@@ -1,0 +1,30 @@
+package rodrigo.javier.booking;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SplashScreenActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash_screen);
+
+        //SplashScreen
+        final Handler handler = new Handler();
+        handler.postDelayed(
+                new Runnable() { // Interface
+                    @Override
+                    public void run() {
+                        // Cargar la 2ª pantalla
+                        Intent intent = new Intent(
+                                getBaseContext(), SearchActivity.class);
+                        startActivity(intent);
+                    }
+                }, 3000);
+
+    }
+}

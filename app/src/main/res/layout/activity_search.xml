@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:background="@color/splashScreen"
+    tools:context=".SearchActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:background="@color/logo_booking"
+        app:srcCompat="@drawable/search" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/row_padding"
+        android:textSize="@dimen/search"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:text="@string/search" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/row_padding"
+        android:textSize="@dimen/header_"
+        android:text="@string/search_hotels" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="60"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/spaceBetween"
+        android:background="@color/back_search"
+        android:weightSum="100">
+
+        <Spinner
+            android:id="@+id/searchSpin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:layout_margin="@dimen/spaceBetween"
+            android:entries="@array/searchSpin"
+            android:backgroundTint="@color/logo_booking"/>
+
+        <EditText
+            android:id="@+id/edtSearchCity"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:layout_margin="@dimen/spaceBetween"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/row_padding"
+            android:gravity="center_vertical"
+            android:hint="@string/search_city"
+            android:textSize="@dimen/header"
+            android:textColorHint="@color/black"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_margin="@dimen/spaceBetween">
+
+             <EditText
+                android:id="@+id/txtSearchDateIn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:layout_marginRight="5dp"
+                android:text="@string/search_date_in"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                 android:textSize="@dimen/header"/>
+
+            <EditText
+                android:id="@+id/txtSearchDateOut"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="@string/search_date_out"
+                android:textColorHint="@color/black"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/header"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edtSearchNumberPeople"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:layout_margin="@dimen/spaceBetween"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/row_padding"
+            android:gravity="center_vertical"
+            android:inputType="number"
+            android:hint="@string/search_number_people"
+            android:textColorHint="@color/black"
+            android:textSize="@dimen/header"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/btSearch"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="20"
+            android:layout_margin="@dimen/spaceBetween"
+            android:backgroundTint="@color/button"
+            android:textSize="@dimen/header"
+            android:text="@string/search_button"
+            android:textStyle="bold"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
