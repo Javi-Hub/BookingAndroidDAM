@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Booking"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SplashEndActivity"></activity>
+        <activity android:name=".register.view.RegisterActivity"></activity>
+        <activity android:name=".register.Register" />
+        <activity android:name=".SplashEndActivity" />
         <activity android:name=".detailRoom.view.DetailRoomActivity" />
         <activity android:name=".login.view.LoginActivity" />
         <activity android:name=".lstRoom.view.LstRoomActivity" />
@@ -20,9 +22,9 @@
         <activity android:name=".bookedRooms.view.BookedRoomActivity" />
         <activity android:name=".filter.view.FilterHotelActivity" />
         <activity android:name=".detailHotel.view.DetailHotelActivity" />
-        <activity android:name=".SearchActivity"/>
+        <activity android:name=".SearchActivity" />
         <activity android:name=".lstHotel.view.LstHotelActivity" />
-        <activity android:name=".SplashScreenActivity" >
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

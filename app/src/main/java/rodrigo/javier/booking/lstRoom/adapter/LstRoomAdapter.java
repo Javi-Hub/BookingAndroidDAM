@@ -91,7 +91,7 @@ public class LstRoomAdapter extends RecyclerView.Adapter<LstRoomAdapter.RoomView
         Picasso.get().load(urlImage).into(holder.image);
         holder.nameHotel.setText(room.getHotelName());
         holder.city.setText(room.getCity());
-        holder.available.setText("Disponible: " + room.getAvailable());
+        holder.available.setText(room.getAvailable());
         holder.capacity.setText(String.valueOf(room.getCapacity()));
         holder.number.setText(String.valueOf(room.getId()));
         holder.prize.setText(String.valueOf(room.getCost()));

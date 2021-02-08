@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/splashScreen"
+    android:weightSum="100"
+    tools:context=".register.view.RegisterActivity">
+
+
+    <ImageView
+        android:id="@+id/imgRegister"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="40"
+        app:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/edtNameRegister"
+        android:layout_width="@dimen/text_login"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:layout_margin="@dimen/spaceBetween"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/register_name"
+        android:textSize="@dimen/header"
+        android:textStyle="bold"
+        android:fontFamily="@string/font_family"/>
+
+    <EditText
+        android:id="@+id/edtSurenameRegister"
+        android:layout_width="@dimen/text_login"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:layout_margin="@dimen/spaceBetween"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/register_surename"
+        android:textSize="@dimen/header"
+        android:textStyle="bold"
+        android:fontFamily="@string/font_family"/>
+
+    <EditText
+        android:id="@+id/edtEmailRegister"
+        android:layout_width="@dimen/text_login"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:layout_margin="@dimen/spaceBetween"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="@string/login_email"
+        android:textSize="@dimen/header"
+        android:textStyle="bold"
+        android:fontFamily="@string/font_family"/>
+
+    <EditText
+        android:id="@+id/edtPasswordRegister"
+        android:layout_width="@dimen/text_login"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:layout_margin="@dimen/spaceBetween"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/login_password"
+        android:textSize="@dimen/header"
+        android:textStyle="bold"
+        android:fontFamily="@string/font_family"/>
+
+    <Button
+        android:id="@+id/btRegister"
+        android:layout_width="@dimen/text_login"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/spaceBetween"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:backgroundTint="@color/button"
+        android:textSize="@dimen/header"
+        android:textStyle="bold"
+        android:text="@string/register_button" />
+</LinearLayout>

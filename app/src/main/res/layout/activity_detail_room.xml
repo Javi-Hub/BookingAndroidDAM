@@ -126,7 +126,7 @@
         android:layout_gravity="center"
         android:shadowRadius="@android:integer/config_longAnimTime"
         android:fontFamily="@string/font_family_other"
-        android:text="@string/book_room"
+        android:text="@string/book_room_button"
         android:textSize="@dimen/font_size_button"
         android:textStyle="bold"
         android:backgroundTint="@color/button" />

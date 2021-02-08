@@ -15,6 +15,7 @@ import rodrigo.javier.booking.beans.User;
 import rodrigo.javier.booking.detailRoom.view.DetailRoomActivity;
 import rodrigo.javier.booking.login.contract.LoginContract;
 import rodrigo.javier.booking.login.presenter.LoginPresenter;
+import rodrigo.javier.booking.register.view.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
@@ -22,7 +23,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     private EditText edtEmailLogin;
     private EditText edtPasswordLogin;
-    private Button btLogin;
+    private Button btLogin, btRegisterLogin;
 
     private String idRoom;
     private String nameHotel;
@@ -64,6 +65,20 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
                 }
             }
         });
+
+        btRegisterLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), RegisterActivity.class);
+                intent.putExtra("id_room", idRoom);
+                intent.putExtra("city", city);
+                intent.putExtra("nameHotel", nameHotel);
+                intent.putExtra("capacity", capacity);
+                intent.putExtra("prize", prize);
+                startActivity(intent);
+            }
+        });
+
 }
 
     @Override
@@ -88,6 +103,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         edtEmailLogin = findViewById(R.id.edtEmailLogin);
         edtPasswordLogin = findViewById(R.id.edtPasswordLogin);
         btLogin = findViewById(R.id.btLogin);
+        btRegisterLogin = findViewById(R.id.btRegisterLogin);
     }
 
     public void errorLogin(String message){

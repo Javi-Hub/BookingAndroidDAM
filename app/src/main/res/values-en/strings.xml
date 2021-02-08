@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Booking</string>
+    <string name="hotel_name">Hotel</string>
+    <string name="hotel_category">Category</string>
+    <string name="hotel_city">City</string>
+    <string name="hotel_prize">Average Price:</string>
+    <string name="hotel_rate">Rate</string>
+    <string name="hotel_booked_rooms">Books</string>
+    <string name="detail_description">Description</string>
+    <string name="detail_booked">Books</string>
+    <string name="detail_cost">Price</string>
+    <string name="detail_button">Selection</string>
+    <string name="detail_room_available">Available</string>
+    <string name="detail_room_capacity">Capacity;</string>
+    <string name="detail_room_number">Nº Room</string>
+    <string name="detail_room_button">Book</string>
+    <string name="search">Search</string>
+    <string name="search_hotels">Hotels, books, addresses...</string>
+    <string name="search_city">City</string>
+    <string name="search_date_in">Date in</string>
+    <string name="search_date_out">Date out</string>
+    <string name="search_number_people">Number of People: __</string>
+    <string name="search_button">Search</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_button">Login</string>
+    <string name="detail_num_people">Nº People</string>
+    <string name="detail_days">Days:</string>
+    <string name="book_room_button">End Book</string>
+    <string name="room_prize">Price:</string>
+    <string name="font_family">serif</string>
+    <string name="font_family_other">arial</string>
+    <string name="order">Order</string>
+    <string name="main_page">Back to Search</string>
+    <string name="hotel_stars">Stars</string>
+    <string name="register_name">Name</string>
+    <string name="register_surename">Surename</string>
+    <string name="register_button">Register</string>
+</resources>

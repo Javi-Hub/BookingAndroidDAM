@@ -99,10 +99,10 @@ public class DetailRoomActivity extends AppCompatActivity implements DetailRoomC
         txtDetailRoomCost = findViewById(R.id.txtDetailRoomCost);
         btEndBook = findViewById(R.id.btEndBook);
     }
-
     public void errorBook(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
+
 
     @Override
     public void success(String message) {

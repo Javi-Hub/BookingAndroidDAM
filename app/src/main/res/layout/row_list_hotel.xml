@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
 
     android:id="@+id/rowHotel"
     android:orientation="horizontal"
@@ -59,14 +59,24 @@
                 android:textColor="@color/black"/>
 
             <TextView
+                android:id="@+id/Prize"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:fontFamily="@string/font_family"
+                android:paddingLeft="@dimen/row_padding"
+                android:text="@string/hotel_prize"
+                android:textColor="@color/detail_cost"
+                android:textSize="@dimen/header_" />
+
+            <TextView
                 android:id="@+id/txtPrize"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.2"
+                android:layout_weight="0.5"
                 android:fontFamily="@string/font_family"
-                android:paddingLeft="@dimen/row_padding"
                 android:gravity="center"
-                android:text="@string/hotel_prize"
+                android:paddingLeft="@dimen/row_padding"
                 android:textColor="@color/detail_cost"
                 android:textSize="@dimen/header_" />
 
@@ -83,23 +93,45 @@
                 android:id="@+id/txtCategory"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="50"
+                android:layout_weight="10"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/row_padding"
                 android:fontFamily="@string/font_family"
-                android:text="@string/hotel_category"
                 android:textSize="@dimen/body"
                 android:textColor="@color/gold"/>
+
+            <TextView
+                android:id="@+id/txtStars"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/row_padding"
+                android:fontFamily="@string/font_family"
+                android:text="@string/hotel_stars"
+                android:textSize="@dimen/body"
+                android:textColor="@color/gold"/>
+
+            <TextView
+                android:id="@+id/Rate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="35"
+                android:fontFamily="@string/font_family"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/row_padding"
+                android:text="@string/hotel_rate"
+                android:textColor="@color/black"
+                android:textSize="@dimen/body" />
 
             <TextView
                 android:id="@+id/txtRate"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="50"
+                android:layout_weight="20"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/row_padding"
                 android:fontFamily="@string/font_family"
-                android:text="@string/hotel_rate"
                 android:textSize="@dimen/body"
                 android:textColor="@color/black"/>
 

@@ -5,8 +5,9 @@
     <string name="hotel_name">Hotel</string>
     <string name="hotel_category">Categoría</string>
     <string name="hotel_city">Ciudad</string>
-    <string name="hotel_prize">Precio</string>
+    <string name="hotel_prize">Precio Medio:</string>
     <string name="hotel_rate">Valoración</string>
+    <string name="hotel_stars">Estrellas</string>
     <string name="hotel_booked_rooms">Reservas</string>
     <string name="detail_description">Descripción</string>
     <string name="detail_booked">Reservas</string>
@@ -14,7 +15,7 @@
     <string name="detail_button">Seleccionar</string>
     <string name="detail_room_available">Disponible</string>
     <string name="detail_room_capacity">Capacidad:</string>
-    <string name="detail_room_number">Nº</string>
+    <string name="detail_room_number">Nº Habitación</string>
     <string name="detail_room_button">Reservar</string>
     <string name="search">Buscar</string>
     <string name="search_hotels">Hoteles, reservas, direcciones...</string>
@@ -28,10 +29,13 @@
     <string name="login_button">Login</string>
     <string name="detail_num_people">Nº Personas</string>
     <string name="detail_days">Días:</string>
-    <string name="book_room">Finalizar reserva</string>
+    <string name="book_room_button">Finalizar reserva</string>
     <string name="room_prize">Precio:</string>
     <string name="order">Ordenar</string>
     <string name="main_page">Volver a Buscador</string>
+    <string name="register_name">Nombre</string>
+    <string name="register_surename">Apellidos</string>
+    <string name="register_button">Registrarse</string>
 
     <string-array name="searchSpin">
         <item>Seleccion</item>

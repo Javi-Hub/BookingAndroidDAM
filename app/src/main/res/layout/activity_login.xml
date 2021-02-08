@@ -40,7 +40,7 @@
         android:layout_weight="10"
         android:ems="10"
         android:gravity="center"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:fontFamily="@string/font_family"
         android:textStyle="bold"
         android:textSize="@dimen/header"
@@ -57,6 +57,18 @@
         android:textSize="@dimen/header"
         android:textStyle="bold"
         android:text="@string/login_button" />
+
+    <Button
+        android:id="@+id/btRegisterLogin"
+        android:layout_width="@dimen/text_login"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/spaceBetween"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:backgroundTint="@color/button"
+        android:textSize="@dimen/header"
+        android:textStyle="bold"
+        android:text="@string/register_button" />
 
 
 </LinearLayout>

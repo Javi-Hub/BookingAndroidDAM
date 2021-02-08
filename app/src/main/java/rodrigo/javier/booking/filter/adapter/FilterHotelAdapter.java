@@ -80,10 +80,10 @@ public class FilterHotelAdapter extends RecyclerView.Adapter<FilterHotelAdapter.
                 lstHotels.get(position).getUrlImage() + ".png";
         Picasso.get().load(urlImage).into(holder.image);
         holder.name.setText(hotel.getName());
-        holder.category.setText(hotel.getCategory() + " estrellas");
+        holder.category.setText(String.valueOf(hotel.getCategory()));
         holder.city.setText(hotel.getCity());
-        holder.prize.setText("Precio medio: " + hotel.getAveragePrize() + "€");
-        holder.rate.setText("Valoración: " + hotel.getRate());
+        holder.prize.setText(hotel.getAveragePrize() + "€");
+        holder.rate.setText(String.valueOf(hotel.getRate()));
         holder.setOnClickListeners();
     }
 

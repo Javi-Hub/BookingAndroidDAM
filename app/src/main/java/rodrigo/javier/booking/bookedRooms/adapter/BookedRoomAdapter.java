@@ -84,10 +84,10 @@ public class BookedRoomAdapter extends RecyclerView.Adapter<BookedRoomAdapter.Ho
                 lstHotels.get(position).getUrlImage() + ".png";
         Picasso.get().load(urlImage).into(holder.image);
         holder.name.setText(hotel.getName());
-        holder.category.setText(hotel.getCategory() + " estrellas");
+        holder.category.setText(String.valueOf(hotel.getCategory()));
         holder.city.setText(hotel.getCity());
-        holder.prize.setText("Precio medio: " + hotel.getAveragePrize() + "€");
-        holder.bookedRooms.setText("Reservas: " + hotel.getBookedRooms());
+        holder.prize.setText(hotel.getAveragePrize() + "€");
+        holder.bookedRooms.setText(String.valueOf(hotel.getBookedRooms()));
         holder.setOnClickListeners();
     }
 
