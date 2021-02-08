@@ -88,10 +88,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:gravity="center"
+                android:gravity="center_vertical"
+                 android:paddingLeft="@dimen/row_padding"
                 android:layout_marginRight="5dp"
-                android:text="@string/search_date_in"
+                android:hint="@string/search_date_in"
+                 android:textColorHint="@color/black"
                 android:textStyle="bold"
+                 android:inputType="date"
                 android:textColor="@color/black"
                  android:textSize="@dimen/header"/>
 
@@ -101,11 +104,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/white"
-                android:gravity="center"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/row_padding"
                 android:layout_marginLeft="5dp"
-                android:text="@string/search_date_out"
+                android:hint="@string/search_date_out"
                 android:textColorHint="@color/black"
                 android:textStyle="bold"
+                android:inputType="datetime"
                 android:textColor="@color/black"
                 android:textSize="@dimen/header"/>
 
