@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="spaceBetween">10dp</dimen>
-    <dimen name="row_padding">8dp</dimen>
-    <dimen name="header">22dp</dimen>
+    <dimen name="spaceBetween">5dp</dimen>
+    <dimen name="row_padding">5dp</dimen>
+    <dimen name="header">15dp</dimen>
     <dimen name="header_">18dp</dimen>
     <dimen name="body">15dp</dimen>
     <dimen name="textResume">20dp</dimen>
@@ -12,4 +12,29 @@
     <dimen name="text_login">300dp</dimen>
     <dimen name="font_size_button">20dp</dimen>
     <dimen name="search">50dp</dimen>
+    <dimen name="general_padding">16dp</dimen>
+    <dimen name="box_login">300dp</dimen>
+    <dimen name="activity_search_logo">130dp</dimen>
+    <dimen name="activity_search_button">55dp</dimen>
+    <dimen name="card_elevation">20dp</dimen>
+    <dimen name="card_radius">5dp</dimen>
+    <dimen name="card_margin">2dp</dimen>
+    <dimen name="card_image">200dp</dimen>
+    <dimen name="card_height">100dp</dimen>
+    <dimen name="card_hotel_title">18sp</dimen>
+    <dimen name="detail_hotel_space">7dp</dimen>
+    <dimen name="detail_hotel_rate">16sp</dimen>
+    <dimen name="detail_hotel_title">20sp</dimen>
+    <dimen name="detail_hotel_information">15sp</dimen>
+    <dimen name="detail_hotel_padding_button">10dp</dimen>
+    <dimen name="row_list_room_padding">10dp</dimen>
+    <dimen name="card_room_hotel">18sp</dimen>
+    <dimen name="card_room_book_button">15sp</dimen>
+    <dimen name="detail_room_box">50dp</dimen>
+    <dimen name="detail_room_name_hotel">20sp</dimen>
+    <dimen name="activity_detail_hotel_name_width">350dp</dimen>
+    <dimen name="activity_detail_hotel_name_height">30dp</dimen>
+    <dimen name="activity_detail_hotel_margin_1">1dp</dimen>
+    <dimen name="activity_detail_hotel_rate_show">35sp</dimen>
+    <dimen name="line_view" type="dimen" format="float">0.5dp</dimen>
 </resources>

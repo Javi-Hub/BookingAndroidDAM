@@ -1,5 +1,7 @@
 package rodrigo.javier.booking.detailRoom.contract;
 
+import android.content.Context;
+
 import rodrigo.javier.booking.beans.BookRoom;
 
 public interface DetailRoomContract {
@@ -9,11 +11,11 @@ public interface DetailRoomContract {
     }
 
     interface Presenter{
-        void doBook(BookRoom bookRoom);
+        void doBook(Context context, BookRoom bookRoom);
     }
 
     interface Model{
-        void doBookService(OnBookRoomListener onBookRoomListener, BookRoom bookRoom);
+        void doBookService(Context context, OnBookRoomListener onBookRoomListener, BookRoom bookRoom);
 
         interface OnBookRoomListener{
             void onResolve(String message);

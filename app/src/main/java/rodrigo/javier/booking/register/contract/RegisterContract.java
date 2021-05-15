@@ -1,5 +1,7 @@
 package rodrigo.javier.booking.register.contract;
 
+import android.content.Context;
+
 import rodrigo.javier.booking.beans.User;
 
 public interface RegisterContract {
@@ -10,11 +12,11 @@ public interface RegisterContract {
     }
 
     interface Presenter{
-        void doRegister(User user);
+        void doRegister(Context context, User user);
     }
 
     interface Model{
-        void doRegisterService(OnRegisterListener onRegisterListener, User user);
+        void doRegisterService(Context context, OnRegisterListener onRegisterListener, User user);
 
         interface OnRegisterListener{
             void onResolve(String message);

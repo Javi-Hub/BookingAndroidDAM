@@ -1,131 +1,335 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/splashScreen"
-    android:weightSum="100"
+    android:background="@color/background_list"
     tools:context=".detailHotel.view.DetailHotelActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <ImageView
-        android:id="@+id/imgDetail"
+        <include layout="@layout/toolbar"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="40"
-        tools:srcCompat="@tools:sample/avatars"
-        android:layout_marginTop="@dimen/spaceBetween"
-        />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <TextView
-        android:id="@+id/txtDetailHotel"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:layout_marginTop="@dimen/spaceBetween"
-        android:gravity="center"
-        android:fontFamily="@string/font_family"
-        android:text="@string/hotel_name"
-        android:autoSizeTextType="uniform"
-        android:textColor="@color/name_hotel"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="5"
-        android:weightSum="2">
+            <View android:layout_width="match_parent"
+                android:layout_height="0.5sp"
+                android:background="@color/separator"/>
 
-        <TextView
-            android:id="@+id/txtDetailCategory"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:fontFamily="@string/font_family"
-            android:text="@string/hotel_category"
-            android:textColor="@color/black"
-            android:textSize="@dimen/body"/>
+            <RelativeLayout
+                android:id="@+id/detail_header"
+                android:layout_width="match_parent"
+                android:layout_height="60sp"
+                android:layout_marginTop="@dimen/detail_hotel_space"
+                android:background="@color/white">
 
-        <TextView
-            android:id="@+id/txtDetailRate"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:fontFamily="@string/font_family"
-            android:text="@string/hotel_rate"
-            android:textColor="@color/black"
-            android:textSize="@dimen/body"/>
+                <View android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_view"
+                    android:background="@color/separator"/>
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/txtDetailHotel"
+                    android:layout_width="@dimen/activity_detail_hotel_name_width"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_detail_hotel_margin_1"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@string/font_family"
+                    android:text="@string/hotel_name"
+                    android:paddingLeft="@dimen/detail_hotel_space"
+                    android:textSize="@dimen/detail_hotel_title"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <RatingBar
+                    android:id="@+id/detail_rating_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtDetailHotel"
+                    android:layout_marginLeft="@dimen/detail_hotel_space"
+                    android:background="@color/white"
+                    android:clickable="false"
+                    android:progressTint="@color/gold"
+                    style="?android:attr/ratingBarStyleSmall"/>
+
+                <TextView
+                    android:id="@+id/txtDetailRate"
+                    android:layout_width="@dimen/activity_detail_hotel_rate_show"
+                    android:layout_height="35sp"
+                    android:layout_toRightOf="@id/txtDetailHotel"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_text_view_rate"
+                    android:fontFamily="@string/font_family"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/detail_hotel_rate"
+                    tools:text="8.9"
+                    android:textStyle="bold" />
+
+                <View android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_view"
+                    android:background="@color/separator"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/detail_information"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="@dimen/detail_hotel_space"
+                android:background="@color/white"
+                android:layout_below="@id/detail_header">
+
+                <View android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_view"
+                    android:background="@color/separator"/>
+
+                <TextView
+                    android:id="@+id/txtDetailInformation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/row_padding"
+                    android:fontFamily="@string/font_family"
+                    android:drawableStart="@drawable/ic_detail_hotel_info"
+                    android:text="Información"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/detail_hotel_information"/>
+
+                <TextView
+                    android:id="@+id/detail_hotel_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spaceBetween"
+                    android:layout_toRightOf="@id/txtDetailInformation"
+                    android:drawableStart="@drawable/ic_detail_hotel_wifi"
+                    android:drawableEnd="@drawable/ic_detail_hotel_restaurant"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/detail_hotel_icon"
+                    android:layout_marginTop="@dimen/spaceBetween"
+                    android:drawableStart="@drawable/ic_detail_credit_card"/>
 
 
-    <TextView
-        android:id="@+id/txtDetailCity"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:layout_marginTop="@dimen/spaceBetween"
-        android:gravity="center"
-        android:fontFamily="@string/font_family"
-        android:text="@string/hotel_city"
-        android:textColor="@color/black"
-        android:textSize="@dimen/header"/>
+                <TextView
+                    android:id="@+id/txtDetailDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/txtDetailInformation"
+                    android:padding="@dimen/row_padding"
+                    android:fontFamily="@string/font_family"
+                    android:text="@string/detail_description"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/detail_hotel_information"/>
 
-    <TextView
-        android:id="@+id/txtDetailDescription"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="15"
-        android:gravity="center_horizontal"
-        android:padding="@dimen/row_padding"
-        android:fontFamily="@string/font_family"
-        android:text="@string/detail_description"
-        android:textColor="@color/black"
-        android:textSize="@dimen/body"/>
 
-    <TextView
-        android:id="@+id/txtDetailBooked"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:layout_marginTop="@dimen/spaceBetween"
-        android:gravity="center"
-        android:fontFamily="@string/font_family"
-        android:text="@string/detail_booked"
-        android:textColor="@color/detail_booked"
-        android:textStyle="bold"
-        android:textSize="@dimen/header"/>
+                <View android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_view"
+                    android:background="@color/separator"
+                    android:layout_alignParentBottom="true"/>
 
-    <TextView
-        android:id="@+id/txtDetailCost"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:layout_marginTop="@dimen/spaceBetween"
-        android:gravity="center"
-        android:fontFamily="@string/font_family"
-        android:text="@string/detail_cost"
-        android:textColor="@color/detail_cost"
-        android:textStyle="bold"
-        android:textSize="@dimen/header"/>
+            </RelativeLayout>
 
-    <Button
-        android:id="@+id/btDetailButton"
-        android:layout_width="@dimen/button"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:layout_marginTop="@dimen/spaceBetween"
-        android:layout_gravity="center"
-        android:shadowRadius="@android:integer/config_longAnimTime"
-        android:fontFamily="@string/font_family_other"
-        android:text="@string/detail_button"
-        android:textSize="@dimen/font_size_button"
-        android:textStyle="bold"
-        android:backgroundTint="@color/button"/>
+            <RelativeLayout
+                android:id="@+id/detail_map"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="@dimen/detail_hotel_space"
+                android:layout_below="@id/detail_information">
 
-</LinearLayout>
+                <View android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_view"
+                    android:background="@color/separator"/>
+
+                <ImageView
+                    android:id="@+id/detail_hotel_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/map" />
+
+                <View android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_view"
+                    android:background="@color/separator"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/detail_hotel_location"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/white"
+                android:layout_below="@id/detail_map">
+
+                <View android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_view"
+                    android:background="@color/separator"/>
+
+                <TextView
+                    android:id="@+id/txtDetailCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@string/font_family"
+                    android:paddingLeft="@dimen/spaceBetween"
+                    android:drawableStart="@drawable/ic_detail_hotel_location"
+                    android:layout_marginTop="@dimen/spaceBetween"
+                    android:text="@string/hotel_city"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/detail_hotel_information"/>
+
+                <TextView
+                    android:id="@+id/txtDetailTransport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_below="@id/txtDetailCity"
+                    android:fontFamily="@string/font_family"
+                    android:paddingLeft="@dimen/spaceBetween"
+                    android:drawableStart="@drawable/ic_detail_hotel_transport"
+                    android:layout_marginTop="@dimen/spaceBetween"
+                    android:text="@string/detail_hotel_center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/detail_hotel_information"/>
+
+                <View android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_view"
+                    android:background="@color/separator"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/detail_hotel_price"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/detail_hotel_location"
+                android:layout_marginTop="7dp"
+                android:background="@color/white">
+
+                <View android:layout_width="match_parent"
+                    android:layout_height="0.5sp"
+                    android:background="@color/separator"/>
+
+                <TextView
+                    android:id="@+id/txtBooks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spaceBetween"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@string/font_family"
+                    android:text="@string/detail_booked"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/header"/>
+
+                <TextView
+                    android:id="@+id/txtDetailBooked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/row_padding"
+                    android:layout_toRightOf="@id/txtBooks"
+                    android:fontFamily="@string/font_family"
+                    android:text="@string/detail_booked"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/header"/>
+
+                <TextView
+                    android:id="@+id/txtCost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtDetailBooked"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="@dimen/spaceBetween"
+                    android:gravity="center"
+                    android:fontFamily="@string/font_family"
+                    android:text="@string/detail_cost"
+                    android:textColor="@color/detail_cost"
+                    android:textSize="@dimen/header"/>
+
+                <TextView
+                    android:id="@+id/txtDetailCost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtDetailBooked"
+                    android:layout_marginLeft="@dimen/spaceBetween"
+                    android:layout_toRightOf="@id/txtCost"
+                    android:gravity="center"
+                    android:fontFamily="@string/font_family"
+                    tools:text="@string/detail_cost"
+                    android:textColor="@color/detail_cost"
+                    android:textStyle="bold"
+                    android:textSize="22dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtDetailBooked"
+                    android:layout_toRightOf="@id/txtDetailCost"
+                    android:layout_marginLeft="@dimen/spaceBetween"
+                    android:textColor="@color/detail_cost"
+                    android:textStyle="bold"
+                    android:text="€"
+                    android:textSize="22dp"/>
+
+                <View android:layout_width="match_parent"
+                    android:layout_height="0.5sp"
+                    android:background="@color/separator"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/white"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="7dp"
+                android:layout_below="@id/detail_hotel_price"
+                android:gravity="center"
+                android:elevation="20sp"
+                android:padding="@dimen/detail_hotel_padding_button">
+
+                <Button
+                    android:id="@+id/btDetailButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:shadowRadius="@android:integer/config_longAnimTime"
+                    android:fontFamily="@string/font_family_other"
+                    android:text="@string/detail_hotel_rooms"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/button"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

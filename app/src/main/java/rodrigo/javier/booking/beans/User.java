@@ -1,12 +1,15 @@
 package rodrigo.javier.booking.beans;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User {
+public class User implements Serializable {
 
     private static ArrayList<User> list;
     private static final String ID = "id";
@@ -14,6 +17,7 @@ public class User {
     private static final String SURENAME = "surename";
     private static final String EMAIL = "email";
     private static final String PASSWORD = "password";
+
 
     public int id;
     public String name;

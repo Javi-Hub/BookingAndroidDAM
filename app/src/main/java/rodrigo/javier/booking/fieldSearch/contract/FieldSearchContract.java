@@ -1,5 +1,7 @@
 package rodrigo.javier.booking.fieldSearch.contract;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 import rodrigo.javier.booking.beans.Hotel;
@@ -13,11 +15,11 @@ public interface FieldSearchContract {
     }
 
     interface Presenter {
-        void getHotels(String city);
+        void getHotels(Context context, String city);
     }
 
     interface Model {
-        void getHotelsService(OnFieldSearchListener onFieldSearchListener, String city);
+        void getHotelsService(Context context, OnFieldSearchListener onFieldSearchListener, String city);
 
         interface OnFieldSearchListener {
             void onResolve(ArrayList<Hotel> lstHotels);

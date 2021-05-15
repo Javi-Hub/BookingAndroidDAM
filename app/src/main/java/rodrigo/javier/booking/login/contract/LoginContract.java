@@ -1,5 +1,7 @@
 package rodrigo.javier.booking.login.contract;
 
+import android.content.Context;
+
 import rodrigo.javier.booking.beans.User;
 
 public interface LoginContract {
@@ -9,11 +11,11 @@ public interface LoginContract {
       }
 
       interface Presenter{
-          void getUser(User user);
+          void getUser(Context context, User user);
       }
 
       interface Model{
-          void getUserService(OnLoginListener onLoginListener, User user);
+          void getUserService(Context context, OnLoginListener onLoginListener, User user);
 
           interface OnLoginListener{
               void onResolve(User user);

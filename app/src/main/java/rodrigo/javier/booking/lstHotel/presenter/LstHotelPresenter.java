@@ -1,5 +1,8 @@
 package rodrigo.javier.booking.lstHotel.presenter;
 
+import android.content.Context;
+
+import java.net.ConnectException;
 import java.util.ArrayList;
 
 import rodrigo.javier.booking.beans.Hotel;
@@ -17,8 +20,8 @@ public class LstHotelPresenter implements LstHotelContract.Presenter {
     }
 
     @Override
-    public void getHotels() {
-        model.getHotelsService(new LstHotelContract.Model.OnLstHotelsListener() {
+    public void getHotels(Context context) {
+        model.getHotelsService(context, new LstHotelContract.Model.OnLstHotelsListener() {
             //Caso satisfactorio
             @Override
             public void onResolve(ArrayList<Hotel> hotels) {

@@ -1,5 +1,8 @@
 package rodrigo.javier.booking.bookedRooms.presenter;
 
+import android.content.Context;
+import android.text.style.IconMarginSpan;
+
 import java.util.ArrayList;
 
 import rodrigo.javier.booking.beans.Hotel;
@@ -18,8 +21,8 @@ public class BookedRoomPresenter implements BookedRoomContract.Presenter {
     }
 
     @Override
-    public void getHotelsBooked() {
-        model.getHotelsMoreBooked(new BookedRoomContract.Model.OnHotelsBookedListener() {
+    public void getHotelsBooked(Context context) {
+        model.getHotelsMoreBooked(context, new BookedRoomContract.Model.OnHotelsBookedListener() {
             @Override
             public void onResolve(ArrayList<Hotel> hotels) {
                 view.successMoreBooked(hotels);

@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="100"
     android:background="@color/splashScreen"
-    tools:context=".SearchActivity">
+    tools:context=".main.SearchActivity">
 
-
+    <!--LOGO-->
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/activity_search_logo"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="20"
+        android:layout_height="@dimen/activity_search_logo"
         android:background="@color/logo_booking"
         app:srcCompat="@drawable/search" />
 
+    <!--TITLE-->
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/activity_search_title"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaceBetween"
+        android:layout_below="@id/activity_search_logo"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/row_padding"
         android:textSize="@dimen/search"
@@ -31,97 +31,112 @@
         android:textColor="@color/black"
         android:text="@string/search" />
 
+    <!--COMMETS-->
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/activity_search_comment"
+        android:layout_below="@id/activity_search_title"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/row_padding"
         android:textSize="@dimen/header_"
         android:text="@string/search_hotels" />
 
+    <!--LAYOUT SEARCH-->
     <LinearLayout
+        android:id="@+id/activity_search_fields"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="60"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_search_comment"
         android:orientation="vertical"
+        android:padding="@dimen/spaceBetween"
         android:layout_margin="@dimen/spaceBetween"
-        android:background="@color/back_search"
-        android:weightSum="100">
+        android:background="@color/back_search" >
 
-        <Spinner
-            android:id="@+id/searchSpin"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/search_activity_city"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="20"
-            android:layout_margin="@dimen/spaceBetween"
-            android:entries="@array/searchSpin"
-            android:backgroundTint="@color/logo_booking"/>
+            android:layout_height="wrap_content"
+            app:errorEnabled="true">
 
-        <EditText
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtSearchCity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:drawableLeft="@drawable/ic_baseline_activity_search_loupe"
+                android:gravity="center_vertical"
+                android:hint="@string/search_city"
+                android:textSize="@dimen/header"
+                app:hintTextColor="@color/black"
+                android:textColor="@color/black"
+                android:inputType="text"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--<EditText
             android:id="@+id/edtSearchCity"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="20"
+            android:layout_height="@dimen/search"
             android:layout_margin="@dimen/spaceBetween"
             android:background="@color/white"
             android:paddingLeft="@dimen/row_padding"
+            android:drawableStart="@drawable/ic_baseline_activity_search_loupe"
             android:gravity="center_vertical"
             android:hint="@string/search_city"
             android:textSize="@dimen/header"
             android:textColorHint="@color/black"
-            android:textStyle="bold"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"/>-->
 
+        <!--DATE-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="20"
-            android:orientation="horizontal"
+            android:layout_height="@dimen/search"
             android:weightSum="2"
-            android:layout_margin="@dimen/spaceBetween">
-
-             <EditText
-                android:id="@+id/txtSearchDateIn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:gravity="center_vertical"
-                 android:paddingLeft="@dimen/row_padding"
-                android:layout_marginRight="5dp"
-                android:hint="@string/search_date_in"
-                 android:textColorHint="@color/black"
-                android:textStyle="bold"
-                 android:inputType="date"
-                android:textColor="@color/black"
-                 android:textSize="@dimen/header"/>
+            android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/txtSearchDateOut"
+                android:id="@+id/edtSearchDateIn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/row_padding"
+                android:layout_marginRight="@dimen/spaceBetween"
+                android:hint="@string/search_date_in"
+                android:drawableStart="@drawable/ic_baseline_activity_search_calendar"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:textSize="@dimen/header"
+                android:clickable="true"
+                android:focusable="false"/>
+
+            <EditText
+                android:id="@+id/edtSearchDateOut"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/row_padding"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="@dimen/spaceBetween"
                 android:hint="@string/search_date_out"
+                android:drawableStart="@drawable/ic_baseline_activity_search_calendar"
                 android:textColorHint="@color/black"
-                android:textStyle="bold"
-                android:inputType="datetime"
                 android:textColor="@color/black"
-                android:textSize="@dimen/header"/>
+                android:textSize="@dimen/header"
+                android:clickable="true"
+                android:focusable="false"/>
 
         </LinearLayout>
 
+        <!--PEOPLE-->
         <EditText
             android:id="@+id/edtSearchNumberPeople"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="20"
-            android:layout_margin="@dimen/spaceBetween"
+            android:layout_height="@dimen/search"
+            android:layout_marginTop="@dimen/spaceBetween"
             android:background="@color/white"
             android:paddingLeft="@dimen/row_padding"
             android:gravity="center_vertical"
@@ -129,21 +144,31 @@
             android:hint="@string/search_number_people"
             android:textColorHint="@color/black"
             android:textSize="@dimen/header"
-            android:textStyle="bold"
             android:textColor="@color/black"/>
 
+        <!--BUTTON SEARCH-->
         <Button
             android:id="@+id/btSearch"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="20"
-            android:layout_margin="@dimen/spaceBetween"
+            android:layout_height="@dimen/activity_search_button"
+            android:layout_marginLeft="@dimen/spaceBetween"
+            android:layout_marginRight="@dimen/spaceBetween"
             android:backgroundTint="@color/button"
             android:textSize="@dimen/header"
             android:text="@string/search_button"
-            android:textStyle="bold"/>
-
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
-</LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/activity_lst_hotel_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/botton_navigation_main_menu">
+
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+</RelativeLayout>
+

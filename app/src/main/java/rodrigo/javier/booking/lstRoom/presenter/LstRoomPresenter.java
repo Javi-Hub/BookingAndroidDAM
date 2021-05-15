@@ -1,5 +1,7 @@
 package rodrigo.javier.booking.lstRoom.presenter;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 import rodrigo.javier.booking.beans.Hotel;
@@ -18,8 +20,8 @@ public class LstRoomPresenter implements LstRoomContract.Presenter {
     }
 
     @Override
-    public void getRooms(Hotel hotel) {
-        model.getRoomsService(new LstRoomContract.Model.OnLstRoomsListener() {
+    public void getRooms(Context context, Hotel hotel) {
+        model.getRoomsService(context, new LstRoomContract.Model.OnLstRoomsListener() {
             @Override
             public void onResolve(ArrayList<Room> lstRooms) {
                 view.success(lstRooms);

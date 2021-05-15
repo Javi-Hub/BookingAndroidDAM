@@ -1,4 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/rowRoom"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/row"
+    android:paddingLeft="@dimen/spaceBetween"
+    android:paddingRight="@dimen/spaceBetween">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_room_hotel"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:elevation="20dp"
+        android:layout_margin="@dimen/card_margin">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/row_list_room_padding">
+
+            <ImageView
+                android:id="@+id/imgPhotoRoom"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_launcher_background"/>
+
+            <TextView
+                android:id="@+id/txtHotelRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/font_family"
+                android:text="@string/hotel_name"
+                android:textSize="@dimen/card_room_hotel"
+                android:textStyle="bold"
+                android:textColor="@color/name_hotel"/>
+
+            <TextView
+                android:id="@+id/txtCityRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtHotelRoom"
+                android:fontFamily="@string/font_family"
+                android:text="@string/hotel_city"
+                android:textSize="@dimen/body"
+                android:textColor="@color/black"
+                android:drawableStart="@drawable/ic_detail_hotel_location"/>
+
+            <TextView
+                android:id="@+id/txtAvailable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtCityRoom"
+                android:textColor="@color/free_cancel"
+                android:fontFamily="@string/font_family"
+                android:text="@string/detail_room_available"
+                android:drawableStart="@drawable/ic_card_check_circle"/>
+
+            <TextView
+                android:id="@+id/txtAvailableRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtCityRoom"
+                android:layout_toRightOf="@id/txtAvailable"
+                android:layout_marginLeft="@dimen/spaceBetween"
+                android:textColor="@color/free_cancel"
+                android:fontFamily="@string/font_family"
+                tools:text="@string/card_room_yes" />
+
+            <TextView
+                android:id="@+id/txtRoomCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtAvailableRoom"
+                android:textColor="@color/black"
+                android:fontFamily="@string/font_family"
+                android:text="@string/detail_room_capacity"
+                android:drawableStart="@drawable/ic_card_room_capacity"/>
+
+            <TextView
+                android:id="@+id/txtCapacityRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_below="@id/txtAvailableRoom"
+                android:layout_toRightOf="@id/txtRoomCapacity"
+                android:fontFamily="@string/font_family"
+                android:paddingLeft="@dimen/row_padding"
+                tools:text="2"/>
+
+            <TextView
+                android:id="@+id/txtRoomNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtCapacityRoom"
+                android:textColor="@color/black"
+                android:fontFamily="@string/font_family"
+                android:text="@string/detail_room_number" />
+
+            <TextView
+                android:id="@+id/txtNumberRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtRoomCapacity"
+                android:layout_toRightOf="@+id/txtRoomNumber"
+                android:textColor="@color/black"
+                android:fontFamily="@string/font_family"
+                android:paddingLeft="@dimen/row_padding"
+                tools:text="54"/>
+
+            <TextView
+                android:id="@+id/txtRoomSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtRoomNumber"
+                android:textColor="@color/black"
+                android:drawableStart="@drawable/ic_card_room_meters"
+                android:fontFamily="@string/font_family"
+                android:text="@string/row_list_room_size" />
+
+            <TextView
+                android:id="@+id/txtRoomPrize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtRoomSize"
+                android:layout_marginTop="@dimen/spaceBetween"
+                android:textColor="@color/black"
+                android:fontFamily="@string/font_family"
+                android:text="@string/room_prize"/>
+
+            <TextView
+                android:id="@+id/txtPrizeRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtRoomSize"
+                android:layout_toRightOf="@id/txtRoomPrize"
+                android:textColor="@color/black"
+                android:fontFamily="@string/font_family"
+                android:paddingLeft="@dimen/row_padding"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="65.5"/>
+
+            <TextView
+                android:id="@+id/txtEuro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtRoomSize"
+                android:layout_toRightOf="@id/txtPrizeRoom"
+                android:textColor="@color/black"
+                android:fontFamily="@string/font_family"
+                android:paddingLeft="@dimen/row_padding"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="€"/>
+
+            <TextView
+                android:id="@+id/card_detail_room_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtPrizeRoom"
+                android:textColor="@color/white"
+                android:background="@drawable/shape_card_label"
+                android:fontFamily="@string/font_family"
+                android:padding="2dp"
+                android:drawableStart="@drawable/ic_detail_room_check_white"
+                android:textSize="12dp"
+                android:text="@string/row_list_room_label"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/shape_text_outline"
+                android:padding="@dimen/spaceBetween"
+                android:text="@string/detail_room_button"
+                android:gravity="center"
+                android:textColor="@color/button"
+                android:textStyle="bold"
+                android:textSize="@dimen/card_room_book_button"/>
+
+        </RelativeLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
+<!--
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
@@ -207,4 +402,4 @@
     </LinearLayout>
 
 
-</LinearLayout>
+</LinearLayout>-->

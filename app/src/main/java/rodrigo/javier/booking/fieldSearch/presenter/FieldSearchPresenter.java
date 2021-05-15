@@ -1,5 +1,7 @@
 package rodrigo.javier.booking.fieldSearch.presenter;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 import rodrigo.javier.booking.beans.Hotel;
@@ -18,8 +20,8 @@ public class FieldSearchPresenter implements FieldSearchContract.Presenter {
     }
 
     @Override
-    public void getHotels(String city) {
-        model.getHotelsService(new FieldSearchContract.Model.OnFieldSearchListener() {
+    public void getHotels(Context context, String city) {
+        model.getHotelsService(context, new FieldSearchContract.Model.OnFieldSearchListener() {
             @Override
             public void onResolve(ArrayList<Hotel> hotels) {
                 view.success(hotels);

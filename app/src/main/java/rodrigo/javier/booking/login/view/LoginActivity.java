@@ -4,13 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 import rodrigo.javier.booking.R;
-import rodrigo.javier.booking.SearchActivity;
 import rodrigo.javier.booking.beans.User;
 import rodrigo.javier.booking.detailRoom.view.DetailRoomActivity;
 import rodrigo.javier.booking.login.contract.LoginContract;
@@ -24,18 +26,27 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     private EditText edtEmailLogin;
     private EditText edtPasswordLogin;
     private Button btLogin, btRegisterLogin;
+    private TextInputLayout textInputLayoutEmail;
+    private TextInputLayout textInputLayoutPassword;
 
     private String idRoom;
     private String nameHotel;
     private String city;
     private String capacity;
     private String prize;
+    private String dateIn;
+    private String dateOut;
+    private String numPeople;
+    private User user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initComponents();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
@@ -44,24 +55,34 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
             city = bundle.getString("city");
             capacity = bundle.getString("capacity");
             prize = bundle.getString("prize");
+            dateIn = bundle.getString("dateIn");
+            dateOut = bundle.getString("dateOut");
+            numPeople = bundle.getString("numPeople");
         }
 
         presenter = new LoginPresenter(this);
+
+        textInputLayoutEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textInputLayoutEmail.setError(null);
+            }
+        });
 
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = edtEmailLogin.getText().toString();
                 String password = edtPasswordLogin.getText().toString();
-                User user = new User();
+                user = new User();
                 user.setEmail(email);
                 user.setPassword(password);
 
                 if (email.isEmpty() || password.isEmpty()){
-                    String message = "Rellenar todos los campos";
+                    String message = "Campo obligatorio";
                     errorLogin(message);
                 } else {
-                    presenter.getUser(user);
+                    presenter.getUser(getBaseContext(), user);
                 }
             }
         });
@@ -75,6 +96,9 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
                 intent.putExtra("nameHotel", nameHotel);
                 intent.putExtra("capacity", capacity);
                 intent.putExtra("prize", prize);
+                intent.putExtra("dateIn", dateIn);
+                intent.putExtra("dateOut", dateOut);
+                intent.putExtra("numPeople", numPeople);
                 startActivity(intent);
             }
         });
@@ -90,13 +114,18 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         intent.putExtra("idUser", user.getId());
         intent.putExtra("capacity", capacity);
         intent.putExtra("prize", prize);
+        intent.putExtra("dateIn", dateIn);
+        intent.putExtra("dateOut", dateOut);
+        intent.putExtra("numPeople", numPeople);
+        intent.putExtra("user", user);
         startActivity(intent);
-        Toast.makeText(this, "Bienvenido " + user.getName(), Toast.LENGTH_LONG).show();
+        textInputLayoutEmail.setError(null);
  }
 
     @Override
     public void error(String error) {
-        Toast.makeText(this, error, Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, error, Toast.LENGTH_LONG).show();
+        textInputLayoutEmail.setError(error);
     }
 
     public void initComponents(){
@@ -104,10 +133,20 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         edtPasswordLogin = findViewById(R.id.edtPasswordLogin);
         btLogin = findViewById(R.id.btLogin);
         btRegisterLogin = findViewById(R.id.btRegisterLogin);
+        textInputLayoutEmail = findViewById(R.id.activity_login_textinput_layout_email);
+        textInputLayoutPassword = findViewById(R.id.activity_login_textinput_layout_password);
     }
 
     public void errorLogin(String message){
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+       //Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        textInputLayoutEmail.setError(message);
+        textInputLayoutPassword.setError(message
+        );
 
+    }
+
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

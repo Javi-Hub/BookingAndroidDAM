@@ -1,4 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_list">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_row_hotel_booked"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/card_image"
+        android:elevation="@dimen/card_elevation"
+        app:cardCornerRadius="@dimen/card_radius"
+        android:layout_margin="@dimen/card_margin">
+
+        <RelativeLayout
+            android:id="@+id/row_list_hotels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgPhoto"
+                android:layout_width="@dimen/card_height"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/font_family"
+                android:gravity="center_vertical"
+                android:padding="@dimen/row_padding"
+                android:layout_toRightOf="@+id/imgPhoto"
+                android:text="@string/hotel_name"
+                android:textSize="@dimen/header"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <RatingBar
+                android:id="@+id/card_rating_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtName"
+                android:layout_toRightOf="@id/imgPhoto"
+                android:clickable="false"
+                android:progressTint="@color/gold"
+                style="?android:attr/ratingBarStyleSmall"/>
+
+            <!--<TextView
+                android:id="@+id/txtCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/row_padding"
+                android:layout_below="@+id/txtName"
+                android:layout_toRightOf="@+id/imgPhoto"
+                android:layout_marginLeft="@dimen/spaceBetween"
+                android:fontFamily="@string/font_family"
+                android:textSize="@dimen/body"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/txtStars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/row_padding"
+                android:layout_toRightOf="@id/txtCategory"
+                android:layout_below="@+id/txtName"
+                android:fontFamily="@string/font_family"
+                android:text="@string/hotel_stars"
+                android:textSize="@dimen/body"
+                android:textColor="@color/black"/>-->
+
+            <TextView
+                android:id="@+id/txtCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/font_family"
+                android:paddingLeft="@dimen/row_padding"
+                android:layout_below="@+id/card_rating_bar"
+                android:layout_toRightOf="@+id/imgPhoto"
+                android:gravity="center_vertical"
+                android:text="@string/hotel_city"
+                android:textSize="@dimen/body"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/Rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/font_family"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/row_padding"
+                android:layout_below="@+id/txtCity"
+                android:layout_toRightOf="@+id/imgPhoto"
+                android:text="@string/hotel_rate"
+                android:textColor="@color/black"
+                android:textSize="@dimen/body" />
+
+            <TextView
+                android:id="@+id/txtRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/row_padding"
+                android:layout_toRightOf="@+id/Rate"
+                android:layout_below="@id/txtCity"
+                android:fontFamily="@string/font_family"
+                android:textSize="@dimen/body"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/Prize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/font_family"
+                android:paddingLeft="@dimen/row_padding"
+                android:layout_below="@+id/Rate"
+                android:layout_toLeftOf="@+id/txtPrize"
+                android:text="@string/hotel_prize"
+                android:textColor="@color/detail_cost"
+                android:textSize="@dimen/header_" />
+
+            <TextView
+                android:id="@+id/txtPrize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/font_family"
+                android:gravity="center"
+                android:paddingLeft="@dimen/row_padding"
+                android:layout_marginRight="@dimen/spaceBetween"
+                android:layout_below="@+id/Rate"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/detail_cost"
+                android:textSize="@dimen/header_"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/card_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/font_family"
+                android:gravity="center"
+                android:paddingLeft="@dimen/row_padding"
+                android:layout_below="@+id/txtPrize"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/spaceBetween"
+                android:text="@string/card_include_taxes_charges"
+                android:drawableStart="@drawable/ic_card_list_hotel_check"
+                android:textColor="@color/black"
+                android:textSize="@dimen/body" />
+            <TextView
+                android:id="@+id/card_comments_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@string/font_family"
+                android:gravity="center"
+                android:paddingLeft="@dimen/row_padding"
+                android:layout_marginRight="@dimen/spaceBetween"
+                android:layout_below="@+id/card_comments"
+                android:layout_alignParentEnd="true"
+                android:text="No requerido pago por anticipado"
+                android:textColor="@color/black"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:id="@+id/card_favorite_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_card_favorite"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="30sp"
+                android:layout_marginTop="20sp"
+                app:tint="@color/black"
+                android:clickable="true"/>
+
+            <TextView
+                android:id="@+id/BookedRooms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/row_padding"
+                android:layout_toLeftOf="@+id/txtBookedRooms"
+                android:layout_below="@+id/card_comments_2"
+                android:fontFamily="@string/font_family"
+                android:text="@string/hotel_booked_rooms"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/txtBookedRooms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/card_comments_2"
+                android:layout_marginRight="@dimen/spaceBetween"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/row_padding"
+                android:fontFamily="@string/font_family"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+        </RelativeLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
+
+
+<!--
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,7 +233,6 @@
     android:padding="5dp"
     android:layout_marginBottom="5dp">
 
-    >
 
     <ImageView
         android:id="@+id/imgPhoto"
@@ -143,3 +362,4 @@
     </LinearLayout>
 
 </LinearLayout>
+-->

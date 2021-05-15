@@ -1,5 +1,6 @@
 package rodrigo.javier.booking.login.model;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -7,14 +8,48 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import rodrigo.javier.booking.BuildConfig;
 import rodrigo.javier.booking.beans.User;
 import rodrigo.javier.booking.login.contract.LoginContract;
+import rodrigo.javier.booking.retrofit.ApiClient;
 import rodrigo.javier.booking.utils.Post;
 
 public class LoginModel implements LoginContract.Model {
 
-    private OnLoginListener onLoginListener;
+    @Override
+    public void getUserService(Context context, OnLoginListener onLoginListener, User user) {
+        ApiClient apiClient = new ApiClient(context);
+        final Call<List<User>> request = apiClient.getValidateUser(user.getEmail(), user.getPassword());
+
+        request.enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                if (response != null && !response.body().isEmpty()){
+                        onLoginListener.onResolve(response.body().get(0));
+                    System.out.println(response.body().get(0).getEmail());
+                } else {
+                    onLoginListener.onReject("Usuario no valido");
+                    System.out.println("ERROR");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                t.printStackTrace();
+                onLoginListener.onReject("Usuario no valido");
+                System.out.println("ERROR");
+            }
+        });
+    }
+
+
+
+    /*private OnLoginListener onLoginListener;
     private ArrayList<User> lstUser;
 
     @Override
@@ -25,10 +60,11 @@ public class LoginModel implements LoginContract.Model {
         param.put("EMAIL", user.getEmail());
         param.put("PASSWORD", user.getPassword());
         BackgroundTask task = new BackgroundTask(param);
-        task.execute("http://192.168.0.12:8090/Booking/Controller");
+        task.execute(BuildConfig.SERVER_URL + "Controller");
+        //task.execute("http://192.168.0.13:8090/Booking/Controller");
      }
 
-    class BackgroundTask extends AsyncTask<String, Integer, Boolean>{
+    class BackgroundTask extends AsyncTask<String, Integer, Boolean> {
 
         private HashMap<String, String> parameters = null;
 
@@ -59,8 +95,8 @@ public class LoginModel implements LoginContract.Model {
                     onLoginListener.onResolve(lstUser.get(0));
                 }
             }catch (Exception e) {
-                onLoginListener.onReject("Fallo Usuario");
+                onLoginListener.onReject("Usuario no valido");
             }
         }
-    }
+    }*/
 }

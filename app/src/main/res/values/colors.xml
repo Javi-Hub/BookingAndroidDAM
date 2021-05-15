@@ -7,13 +7,20 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="splashScreen">#e0e0e0</color>
-    <color name="row">#f5f5f5</color>
+    <color name="splashScreen">#F3F0F0</color>
+    <color name="row">#E6E6E6</color>
     <color name="name_hotel">#1976D2</color>
     <color name="detail_cost">#C2185B</color>
     <color name="detail_booked">#4CAF50</color>
-    <color name="button">#00BCD4</color>
+    <color name="free_cancel">#3D8740</color>
+    <color name="button">#1D61B5</color>
     <color name="logo_booking">#003580</color>
+    <color name="header">#0157D3</color>
+    <color name="header_app">#003580</color>
     <color name="back_search">#FFC107</color>
     <color name="gold">#FBC02D</color>
+    <color name="background_list">#F3F3F3</color>
+    <color name="separator">#9E9D9D</color>
+    <color name="detail_room_box">#A8A8A8</color>
+    <color name="detail_room_box_book_number">#E6E6E6</color>
 </resources>

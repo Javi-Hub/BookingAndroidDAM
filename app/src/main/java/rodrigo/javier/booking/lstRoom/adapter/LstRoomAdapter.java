@@ -6,36 +6,38 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
+import rodrigo.javier.booking.BuildConfig;
 import rodrigo.javier.booking.R;
-import rodrigo.javier.booking.SearchActivity;
 import rodrigo.javier.booking.beans.Room;
 import rodrigo.javier.booking.login.view.LoginActivity;
 
 public class LstRoomAdapter extends RecyclerView.Adapter<LstRoomAdapter.RoomViewHolder> {
 
     private ArrayList<Room> lstRooms;
+    private String dateIn, dateOut, numPeople;
 
-    public LstRoomAdapter(ArrayList<Room> lstRooms) {
+    public LstRoomAdapter(ArrayList<Room> lstRooms, String dateIn, String dateOut, String numPeople) {
         this.lstRooms = lstRooms;
+        this.dateIn = dateIn;
+        this.dateOut = dateOut;
+        this.numPeople = numPeople;
     }
 
     public static class RoomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         //Campos respectivos de un item
         public Context context;
-        public LinearLayout rowRoom;
+        public CardView card_list_room;
         public ImageView image;
         public TextView nameHotel;
         public TextView available;
@@ -43,11 +45,12 @@ public class LstRoomAdapter extends RecyclerView.Adapter<LstRoomAdapter.RoomView
         public TextView number;
         public TextView prize;
         public TextView city;
+        private String dateIn, dateOut, numPeople;
 
         public RoomViewHolder(View view){
             super(view);
             context = view.getContext();
-            rowRoom = view.findViewById(R.id.rowRoom);
+            card_list_room = view.findViewById(R.id.card_room_hotel);
             image = view.findViewById(R.id.imgPhotoRoom);
             nameHotel = view.findViewById(R.id.txtHotelRoom);
             available = view.findViewById(R.id.txtAvailableRoom);
@@ -58,7 +61,7 @@ public class LstRoomAdapter extends RecyclerView.Adapter<LstRoomAdapter.RoomView
         }
 
         void setOnClickListeners() {
-            rowRoom.setOnClickListener(this);
+            card_list_room.setOnClickListener(this);
         }
 
         @Override
@@ -69,6 +72,9 @@ public class LstRoomAdapter extends RecyclerView.Adapter<LstRoomAdapter.RoomView
             intent.putExtra("city", city.getText());
             intent.putExtra("capacity", capacity.getText());
             intent.putExtra("prize", prize.getText());
+            intent.putExtra("dateIn", dateIn);
+            intent.putExtra("dateOut", dateOut);
+            intent.putExtra("numPeople", numPeople);
             context.startActivity(intent);
         }
     }
@@ -86,7 +92,9 @@ public class LstRoomAdapter extends RecyclerView.Adapter<LstRoomAdapter.RoomView
     @Override
     public void onBindViewHolder(@NonNull RoomViewHolder holder, int position) {
         Room room = lstRooms.get(position);
-        String urlImage = "http://192.168.0.12:8090/Booking/images/" +
+        /*String urlImage = "http://192.168.0.13:8090/Booking/images/" +
+                lstRooms.get(position).getUrlImage() + ".png";*/
+        String urlImage = BuildConfig.SERVER_URL + "images/" +
                 lstRooms.get(position).getUrlImage() + ".png";
         Picasso.get().load(urlImage).into(holder.image);
         holder.nameHotel.setText(room.getHotelName());
@@ -96,6 +104,9 @@ public class LstRoomAdapter extends RecyclerView.Adapter<LstRoomAdapter.RoomView
         holder.number.setText(String.valueOf(room.getId()));
         holder.prize.setText(String.valueOf(room.getCost()));
         holder.setOnClickListeners();
+        holder.dateIn = this.dateIn;
+        holder.dateOut = this.dateOut;
+        holder.numPeople = this.numPeople;
     }
 
     @Override

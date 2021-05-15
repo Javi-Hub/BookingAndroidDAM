@@ -1,21 +1,44 @@
 package rodrigo.javier.booking.lstRoom.model;
 
-import android.os.AsyncTask;
-import android.util.Log;
-
-import org.json.JSONArray;
+import android.content.Context;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import rodrigo.javier.booking.beans.Hotel;
 import rodrigo.javier.booking.beans.Room;
 import rodrigo.javier.booking.lstRoom.contract.LstRoomContract;
-import rodrigo.javier.booking.utils.Post;
+import rodrigo.javier.booking.retrofit.ApiClient;
 
 public class LstRoomModel implements LstRoomContract.Model {
 
-    private OnLstRoomsListener onLstRoomsListener;
+    @Override
+    public void getRoomsService(Context context, OnLstRoomsListener onLstRoomsListener, Hotel hotel) {
+        ApiClient apiClient = new ApiClient(context);
+        final Call<List<Room>> request = apiClient.getRoomsHotel(hotel.getName());
+
+        request.enqueue(new Callback<List<Room>>() {
+            @Override
+            public void onResponse(Call<List<Room>> call, Response<List<Room>> response) {
+                if (response != null && response.body() != null){
+                    onLstRoomsListener.onResolve(new ArrayList<>(response.body()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Room>> call, Throwable t) {
+                t.printStackTrace();
+                onLstRoomsListener.onReject(t.getLocalizedMessage());
+            }
+        });
+    }
+
+
+
+    /*private OnLstRoomsListener onLstRoomsListener;
     private ArrayList<Room> lstRooms;
 
     @Override
@@ -25,7 +48,8 @@ public class LstRoomModel implements LstRoomContract.Model {
         param.put("ACTION", "ROOM.FIND_FILTER");
         param.put("NAME_HOTEL", hotel.getName());
         BackgroundTask task = new BackgroundTask(param);
-        task.execute("http://192.168.0.12:8090/Booking/Controller");
+        task.execute(BuildConfig.SERVER_URL + "Controller");
+        //task.execute("http://192.168.0.13:8090/Booking/Controller");
 
     }
 
@@ -62,5 +86,5 @@ public class LstRoomModel implements LstRoomContract.Model {
                 onLstRoomsListener.onReject("Fallo: Listar Hoteles");
             }
         }
-    }
+    }*/
 }

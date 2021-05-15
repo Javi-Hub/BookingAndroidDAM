@@ -6,87 +6,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/splashScreen"
-    android:weightSum="100"
+    android:background="@color/white"
     tools:context=".register.view.RegisterActivity">
 
 
     <ImageView
         android:id="@+id/imgRegister"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="40"
+        android:layout_height="wrap_content"
         app:srcCompat="@drawable/logo" />
 
-    <EditText
-        android:id="@+id/edtNameRegister"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="@dimen/text_login"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:layout_margin="@dimen/spaceBetween"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/register_name"
-        android:textSize="@dimen/header"
-        android:textStyle="bold"
-        android:fontFamily="@string/font_family"/>
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">    >
 
-    <EditText
-        android:id="@+id/edtSurenameRegister"
-        android:layout_width="@dimen/text_login"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:layout_margin="@dimen/spaceBetween"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/register_surename"
-        android:textSize="@dimen/header"
-        android:textStyle="bold"
-        android:fontFamily="@string/font_family"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtNameRegister"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/register_name"
+            android:textSize="@dimen/header_" />
 
-    <EditText
-        android:id="@+id/edtEmailRegister"
-        android:layout_width="@dimen/text_login"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:layout_margin="@dimen/spaceBetween"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="@string/login_email"
-        android:textSize="@dimen/header"
-        android:textStyle="bold"
-        android:fontFamily="@string/font_family"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/edtPasswordRegister"
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="@dimen/text_login"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:layout_margin="@dimen/spaceBetween"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/login_password"
-        android:textSize="@dimen/header"
-        android:textStyle="bold"
-        android:fontFamily="@string/font_family"/>
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">    >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtSurenameRegister"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/register_surename"
+            android:textSize="@dimen/header_" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="@dimen/text_login"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">    >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtEmailRegister"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/login_email"
+            android:textSize="@dimen/header_"
+            android:inputType="textEmailAddress"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="@dimen/text_login"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">    >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtPasswordRegister"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/login_password"
+            android:textSize="@dimen/header_"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/btRegister"
         android:layout_width="@dimen/text_login"
         android:layout_gravity="center"
         android:layout_margin="@dimen/spaceBetween"
-        android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/button"
         android:textSize="@dimen/header"
         android:textStyle="bold"
-        android:text="@string/register_button" />
+        android:text="@string/register_button"
+        android:textColor="@color/white"/>
 </LinearLayout>

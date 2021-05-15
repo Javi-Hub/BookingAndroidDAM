@@ -1,20 +1,41 @@
 package rodrigo.javier.booking.register.model;
 
-import android.os.AsyncTask;
-import android.util.Log;
+import android.content.Context;
 
-import org.json.JSONArray;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import rodrigo.javier.booking.beans.User;
 import rodrigo.javier.booking.register.contract.RegisterContract;
-import rodrigo.javier.booking.utils.Post;
+import rodrigo.javier.booking.retrofit.ApiClient;
 
 public class RegisterModel implements RegisterContract.Model {
 
-    OnRegisterListener onRegisterListener;
+
+    @Override
+    public void doRegisterService(Context context, OnRegisterListener onRegisterListener, User user) {
+        ApiClient apiClient = new ApiClient(context);
+        final Call<User> request = apiClient.setUser(user.getName(), user.getSurename(), user.getEmail(), user.getPassword());
+
+        request.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response != null && response.body() != null){
+                    onRegisterListener.onResolve("Usuario registrado");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                t.printStackTrace();
+                onRegisterListener.onReject("Usuario no registrado");
+            }
+        });
+    }
+
+
+
+    /*OnRegisterListener onRegisterListener;
     private ArrayList<User> list;
 
     @Override
@@ -27,7 +48,8 @@ public class RegisterModel implements RegisterContract.Model {
         param.put("EMAIL", user.getEmail());
         param.put("PASSWORD", user.getPassword());
         BackgroundTask task = new BackgroundTask(param);
-        task.execute("http://192.168.0.12:8090/Booking/Controller");
+        task.execute(BuildConfig.SERVER_URL + "Controller");
+        //task.execute("http://192.168.0.13:8090/Booking/Controller");
     }
 
     class BackgroundTask extends AsyncTask<String, Integer, Boolean>{
@@ -62,6 +84,6 @@ public class RegisterModel implements RegisterContract.Model {
                 onRegisterListener.onReject("Error al registrar usuario");
             }
         }
-    }
+    }*/
 
 }

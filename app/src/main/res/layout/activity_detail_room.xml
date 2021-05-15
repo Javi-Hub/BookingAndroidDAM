@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,129 +7,631 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/splashScreen"
-    android:weightSum="100"
     tools:context=".detailRoom.view.DetailRoomActivity">
 
-
-    <ImageView
-        android:id="@+id/imgDetailRoom"
+    <RelativeLayout
+        android:id="@+id/detail_room_header"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/search"
-        android:layout_weight="40"
-        android:background="@drawable/room"
-        android:layout_margin="@dimen/spaceBetween"/>
+        android:layout_height="wrap_content"
+        android:background="@color/logo_booking">
+
+        <TextView
+            android:id="@+id/txtDetailRoomHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/detail_room_box"
+            android:layout_marginStart="100dp"
+            android:text="@string/detail_room_end_book"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/txtDetailRoomUser"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/detail_room_box"
+            android:layout_marginStart="@dimen/spaceBetween"
+            android:layout_toRightOf="@id/txtDetailRoomHeader"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            tools:text="User"/>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/detail_room_book_number"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_room_box"
+        android:layout_below="@id/detail_room_header"
+        android:layout_marginTop="@dimen/spaceBetween"
+        android:background="@color/detail_room_box" />
+
+    <RelativeLayout
+        android:id="@+id/detail_room_book_number_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_room_book_number"
+        android:background="@color/detail_room_box_book_number"
+        android:padding="@dimen/spaceBetween">
+
+        <TextView
+            android:id="@+id/BookNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_book_number"
+            android:textColor="@color/black"
+            android:textSize="13dp"/>
+
+        <TextView
+            android:id="@+id/txtBookNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/BookNumber"
+            tools:text="123456"
+            android:textColor="@color/black"
+            android:textSize="13dp"/>
+
+    </RelativeLayout>
+
 
     <TextView
         android:id="@+id/txtDetailRoomHotel"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_room_book_number_2"
         android:layout_marginTop="@dimen/spaceBetween"
-        android:gravity="center"
+        android:layout_marginStart="@dimen/spaceBetween"
+        android:layout_marginEnd="30sp"
+        android:gravity="center_vertical"
         android:fontFamily="@string/font_family"
+        android:drawableEnd="@drawable/ic_detail_room_message"
         android:text="@string/hotel_name"
-        android:autoSizeTextType="uniform"
+        android:textSize="@dimen/detail_room_name_hotel"
+        android:textStyle="bold"
         android:textColor="@color/name_hotel" />
 
     <TextView
         android:id="@+id/txtDetailRoomCity"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtDetailRoomHotel"
         android:layout_marginTop="@dimen/spaceBetween"
+        android:layout_marginStart="@dimen/spaceBetween"
+        android:drawableStart="@drawable/ic_detail_hotel_location"
         android:gravity="center"
         android:fontFamily="@string/font_family"
         android:text="@string/hotel_city"
         android:textColor="@color/black"
         android:textSize="@dimen/header" />
 
+    <View android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:layout_marginTop="@dimen/spaceBetween"
+        android:layout_below="@id/txtDetailRoomCity"
+        android:background="@color/separator"/>
 
-    <TextView
-            android:id="@+id/txtDetailRoomNumber"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:gravity="center"
+    <LinearLayout
+        android:id="@+id/detail_room_layout_number_room"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/txtDetailRoomCity"
+        android:layout_marginStart="@dimen/spaceBetween"
+        android:weightSum="2"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/NumberRoom"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:gravity="center_vertical"
             android:fontFamily="@string/font_family"
             android:text="@string/detail_room_number"
             android:textColor="@color/black"
-            android:textSize="@dimen/body" />
+            android:textSize="@dimen/body"
+            android:textAlignment="textEnd"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/txtDetailRoomNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/spaceBetween"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:fontFamily="@string/font_family"
+            android:textColor="@color/black"
+            android:textSize="@dimen/body"/>
+
+    </LinearLayout>
+
+    <View android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:layout_below="@id/detail_room_layout_number_room"
+        android:background="@color/separator"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
+        android:id="@+id/detail_room_layout_number_people"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_room_layout_number_room"
         android:orientation="horizontal"
         android:weightSum="2"
         android:layout_marginTop="@dimen/spaceBetween">
 
-
         <TextView
-            android:id="@+id/txtDetailRoomPeople"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.9"
+            android:layout_weight="1"
             android:text="@string/detail_num_people"
             android:gravity="center_vertical"
-            android:paddingLeft="@dimen/header"
-            android:textSize="@dimen/header_"
-            android:textColor="@color/black"
-            android:fontFamily="@string/font_family" />
-
-        <TextView
-            android:id="@+id/txtNumberDays"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.4"
-            android:text="@string/detail_days"
-            android:gravity="center_vertical"
-            android:paddingLeft="@dimen/header"
-            android:textSize="@dimen/header_"
+            android:drawableStart="@drawable/ic_detail_room_number_people"
+            android:layout_marginStart="@dimen/spaceBetween"
+            android:textSize="@dimen/body"
             android:textColor="@color/black"
             android:fontFamily="@string/font_family" />
 
         <EditText
-            android:id="@+id/edtDetailRoomDays"
-            android:layout_width="0dp"
+            android:id="@+id/edtDetailRoomPeople"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.7"
-            android:inputType="number"
+            android:layout_weight="1"
             android:gravity="center_vertical"
-            android:paddingLeft="@dimen/header"
+            android:inputType="number"
             android:textSize="@dimen/header_"
             android:textColor="@color/black"
             android:fontFamily="@string/font_family" />
 
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:layout_below="@id/detail_room_layout_number_people"
+        android:background="@color/separator"/>
+
+    <LinearLayout
+        android:id="@+id/detail_room_layout_date_in"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/detail_room_layout_number_people"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/detail_room_date_in"
+            android:layout_marginStart="@dimen/spaceBetween"
+            android:textSize="@dimen/body"
+            android:textColor="@color/black"
+            android:fontFamily="@string/font_family"/>
+
+        <EditText
+            android:id="@+id/edtDetailRoomDateIn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/body"
+            android:textColor="@color/black"
+            android:fontFamily="@string/font_family"
+            android:focusable="false"/>
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtDetailRoomCost"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
+    <View
+        android:id="@+id/line_vertical"
+        android:layout_width="0.5sp"
+        android:layout_height="50dp"
+        android:layout_below="@id/detail_room_layout_number_people"
+        android:layout_toRightOf="@+id/detail_room_layout_date_in"
         android:layout_marginTop="@dimen/spaceBetween"
+        android:background="@color/separator"/>
+
+    <LinearLayout
+        android:id="@+id/detail_room_layout_date_out"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_toRightOf="@id/detail_room_layout_date_in"
+        android:layout_below="@id/detail_room_layout_number_people"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/detail_room_date_out"
+            android:layout_marginStart="@dimen/spaceBetween"
+            android:textSize="@dimen/body"
+            android:textColor="@color/black"
+            android:fontFamily="@string/font_family"/>
+
+        <EditText
+            android:id="@+id/edtDetailRoomDateOut"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/body"
+            android:textColor="@color/black"
+            android:fontFamily="@string/font_family"
+            android:focusable="false"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:layout_below="@id/line_vertical"
+        android:layout_marginTop="@dimen/spaceBetween"
+        android:background="@color/separator"/>
+
+    <LinearLayout
+        android:id="@+id/detail_room_layout_days"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/spaceBetween"
+        android:layout_below="@id/detail_room_layout_date_in"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtNumberDays"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/detail_nights"
+            android:gravity="center_vertical"
+            android:drawableStart="@drawable/ic_detail_room_nights"
+            android:textSize="@dimen/body"
+            android:textColor="@color/black"
+            android:fontFamily="@string/font_family" />
+
+        <TextView
+            android:id="@+id/txtDetailRoomDays"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@string/font_family"
+            android:gravity="center_vertical"
+            android:layout_marginStart="@dimen/spaceBetween"
+            android:textColor="@color/black"
+            android:textSize="@dimen/body" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:layout_below="@id/detail_room_layout_days"
+        android:layout_marginTop="@dimen/spaceBetween"
+        android:background="@color/separator"/>
+
+    <TextView
+        android:id="@+id/DetailRoomCost"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/spaceBetween"
+        android:layout_below="@id/detail_room_layout_days"
         android:gravity="center"
         android:fontFamily="@string/font_family"
-        android:text="@string/detail_cost"
+        android:text="@string/detail_room_price"
         android:textColor="@color/detail_cost"
         android:textStyle="bold"
         android:textSize="@dimen/header" />
 
+    <TextView
+        android:id="@+id/txtDetailRoomCost"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/spaceBetween"
+        android:layout_below="@id/detail_room_layout_days"
+        android:layout_toRightOf="@+id/DetailRoomCost"
+        android:gravity="center"
+        android:fontFamily="@string/font_family"
+        tools:text="450"
+        android:textColor="@color/detail_cost"
+        android:textStyle="bold"
+        android:textSize="25sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="@string/euro"
+        android:layout_below="@id/detail_room_layout_days"
+        android:layout_toRightOf="@id/txtDetailRoomCost"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/detail_cost"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5sp"
+        android:layout_below="@id/txtDetailRoomCost"
+        android:layout_marginTop="@dimen/spaceBetween"
+        android:background="@color/separator"/>
+
     <Button
         android:id="@+id/btEndBook"
-        android:layout_width="@dimen/book_room_button"
-        android:layout_height="0dp"
-        android:layout_weight="11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/spaceBetween"
         android:layout_gravity="center"
         android:shadowRadius="@android:integer/config_longAnimTime"
         android:fontFamily="@string/font_family_other"
         android:text="@string/book_room_button"
-        android:textSize="@dimen/font_size_button"
-        android:textStyle="bold"
-        android:backgroundTint="@color/button" />
+        android:textSize="@dimen/body"
+        android:textColor="@color/button"
+        app:strokeColor="@color/button"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+</RelativeLayout>
+
+<!--********************************************-->
+
+<!--
+    <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="@color/splashScreen"
+android:weightSum="100"
+android:padding="@dimen/general_padding"
+tools:context=".detailRoom.view.DetailRoomActivity">
+
+
+<ImageView
+    android:id="@+id/imgDetailRoom"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginTop="@dimen/search"
+    android:layout_weight="35"
+    android:background="@drawable/room"
+    android:layout_margin="@dimen/spaceBetween"/>
+
+<TextView
+    android:id="@+id/txtDetailRoomHotel"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="8"
+    android:layout_marginTop="@dimen/spaceBetween"
+    android:gravity="center"
+    android:fontFamily="@string/font_family"
+    android:text="@string/hotel_name"
+    android:autoSizeTextType="uniform"
+    android:textColor="@color/name_hotel" />
+
+<TextView
+    android:id="@+id/txtDetailRoomCity"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="5"
+    android:layout_marginTop="@dimen/spaceBetween"
+    android:gravity="center"
+    android:fontFamily="@string/font_family"
+    android:text="@string/hotel_city"
+    android:textColor="@color/black"
+    android:textSize="@dimen/header" />
+
+<LinearLayout
+    android:layout_width="200dp"
+    android:layout_height="0dp"
+    android:layout_weight="5"
+    android:weightSum="2"
+    android:layout_gravity="center"
+    android:layout_marginTop="8dp">
+
+    <TextView
+        android:id="@+id/NumberRoom"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        android:gravity="center"
+        android:fontFamily="@string/font_family"
+        android:text="@string/detail_room_number"
+        android:textColor="@color/black"
+        android:textSize="@dimen/body"
+        android:textAlignment="textEnd"
+        tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/txtDetailRoomNumber"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:fontFamily="@string/font_family"
+        android:textColor="@color/black"
+        android:textSize="@dimen/body"/>
+
+</LinearLayout>
+
+<View
+    android:layout_width="fill_parent"
+    android:layout_height="1dp"
+    android:background="@color/button"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="8"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:layout_marginTop="@dimen/spaceBetween">
+
+
+    <TextView
+
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/detail_num_people"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/header"
+        android:textSize="@dimen/header_"
+        android:textColor="@color/black"
+        android:fontFamily="@string/font_family" />
+
+    <EditText
+        android:id="@+id/edtDetailRoomPeople"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:inputType="number"
+        android:textSize="@dimen/header_"
+        android:textColor="@color/black"
+        android:fontFamily="@string/font_family" />
+
+    &lt;!&ndash;<TextView
+        android:id="@+id/txtNumberDays"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.4"
+        android:text="@string/detail_days"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/header"
+        android:textSize="@dimen/header_"
+        android:textColor="@color/black"
+        android:fontFamily="@string/font_family" />
+
+    <EditText
+        android:id="@+id/edtDetailRoomDays"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:inputType="number"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/header"
+        android:textSize="@dimen/header_"
+        android:textColor="@color/black"
+        android:fontFamily="@string/font_family" />&ndash;&gt;
+
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="8"
+    android:orientation="horizontal"
+    android:weightSum="2">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="@string/detail_room_date_in"
+        android:paddingLeft="@dimen/header"
+        android:textSize="@dimen/header_"
+        android:textColor="@color/black"
+        android:fontFamily="@string/font_family"/>
+
+    <EditText
+        android:id="@+id/edtDetailRoomDateIn"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textSize="@dimen/header_"
+        android:textColor="@color/black"
+        android:fontFamily="@string/font_family"
+        android:focusable="false"/>
 
 
 </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="8"
+    android:orientation="horizontal"
+    android:weightSum="2">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="@string/detail_room_date_out"
+        android:paddingLeft="@dimen/header"
+        android:textSize="@dimen/header_"
+        android:textColor="@color/black"
+        android:fontFamily="@string/font_family"/>
+
+    <EditText
+        android:id="@+id/edtDetailRoomDateOut"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textSize="@dimen/header_"
+        android:textColor="@color/black"
+        android:fontFamily="@string/font_family"
+        android:focusable="false"/>
+
+
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="8"
+    android:weightSum="2"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txtNumberDays"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/detail_nights"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/header"
+        android:textSize="@dimen/header_"
+        android:textColor="@color/black"
+        android:fontFamily="@string/font_family" />
+
+    <TextView
+        android:id="@+id/txtDetailRoomDays"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fontFamily="@string/font_family"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/header"
+        android:textColor="@color/black"
+        android:textSize="@dimen/header_" />
+
+</LinearLayout>
+
+<TextView
+    android:id="@+id/txtDetailRoomCost"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="5"
+    android:layout_marginTop="@dimen/spaceBetween"
+    android:gravity="center"
+    android:fontFamily="@string/font_family"
+    android:text="@string/detail_cost"
+    android:textColor="@color/detail_cost"
+    android:textStyle="bold"
+    android:textSize="@dimen/header" />
+
+<Button
+    android:id="@+id/btEndBook"
+    android:layout_width="@dimen/book_room_button"
+    android:layout_height="0dp"
+    android:layout_weight="11"
+    android:layout_margin="@dimen/spaceBetween"
+    android:layout_gravity="center"
+    android:shadowRadius="@android:integer/config_longAnimTime"
+    android:fontFamily="@string/font_family_other"
+    android:text="@string/book_room_button"
+    android:textSize="@dimen/font_size_button"
+    android:textStyle="bold"
+    android:textColor="@color/white"
+    android:backgroundTint="@color/button" />
+
+
+</LinearLayout>-->

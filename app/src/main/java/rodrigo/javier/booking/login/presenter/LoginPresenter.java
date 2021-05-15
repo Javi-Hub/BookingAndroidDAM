@@ -1,5 +1,7 @@
 package rodrigo.javier.booking.login.presenter;
 
+import android.content.Context;
+
 import rodrigo.javier.booking.beans.User;
 import rodrigo.javier.booking.login.contract.LoginContract;
 import rodrigo.javier.booking.login.model.LoginModel;
@@ -16,8 +18,8 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public void getUser(User user) {
-        model.getUserService(new LoginContract.Model.OnLoginListener() {
+    public void getUser(Context context, User user) {
+        model.getUserService(context, new LoginContract.Model.OnLoginListener() {
             @Override
             public void onResolve(User user) {
                 view.success(user);

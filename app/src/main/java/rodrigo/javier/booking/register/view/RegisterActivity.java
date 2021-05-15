@@ -36,6 +36,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         initComponents();
 
@@ -66,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
                     String message = "Debe rellenar todos los campos";
                     errorRegister(message);
                 } else {
-                    presenter.doRegister(user);
+                    presenter.doRegister(getBaseContext(), user);
                 }
             }
         });
@@ -102,5 +104,10 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     @Override
     public void error(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

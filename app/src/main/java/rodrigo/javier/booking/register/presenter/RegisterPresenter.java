@@ -1,5 +1,7 @@
 package rodrigo.javier.booking.register.presenter;
 
+import android.content.Context;
+
 import rodrigo.javier.booking.beans.User;
 import rodrigo.javier.booking.register.contract.RegisterContract;
 import rodrigo.javier.booking.register.model.RegisterModel;
@@ -16,8 +18,8 @@ public class RegisterPresenter implements RegisterContract.Presenter {
     }
 
     @Override
-    public void doRegister(User user) {
-        model.doRegisterService(new RegisterContract.Model.OnRegisterListener() {
+    public void doRegister(Context context, User user) {
+        model.doRegisterService(context, new RegisterContract.Model.OnRegisterListener() {
             @Override
             public void onResolve(String message) {
                 view.success(message);

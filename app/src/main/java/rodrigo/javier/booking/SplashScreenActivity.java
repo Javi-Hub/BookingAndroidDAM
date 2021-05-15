@@ -6,6 +6,8 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import rodrigo.javier.booking.main.Main;
+
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
@@ -21,7 +23,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                     public void run() {
                         // Cargar la 2ª pantalla
                         Intent intent = new Intent(
-                                getBaseContext(), SearchActivity.class);
+                                getBaseContext(), Main.class);
                         startActivity(intent);
                     }
                 }, 3000);

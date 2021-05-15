@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".main.TripsFragmentMain">
+
+    <RelativeLayout
+        android:id="@+id/trips_header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/logo_booking"
+        >
+
+        <TextView
+            android:id="@+id/txtView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bienvenido a Booking"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:textSize="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/txtView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/txtView3"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="@dimen/spaceBetween"
+            android:drawableStart="@drawable/ic_trips_help"/>
+
+        <TextView
+            android:id="@+id/txtView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_alignParentRight="true"
+            android:drawableStart="@drawable/ic_baseline_cloud_circle_24"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imgLogoTrips"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/trips_header"
+        android:src="@drawable/logo4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/trips_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aquí encontrarás tus viajes"
+        android:layout_below="@+id/imgLogoTrips"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/text_comment"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/trips_text_comment"
+        android:textAlignment="center"
+        android:layout_below="@+id/trips_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="15dp"
+        android:textColor="@color/black" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_comment"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/trips_button"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        app:icon="@drawable/ic_clock_trips_button"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"/>
+
+
+
+</RelativeLayout>

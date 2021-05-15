@@ -1,5 +1,6 @@
 package rodrigo.javier.booking.fieldSearch.model;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -7,15 +8,47 @@ import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import rodrigo.javier.booking.BuildConfig;
 import rodrigo.javier.booking.beans.Hotel;
 import rodrigo.javier.booking.fieldSearch.contract.FieldSearchContract;
 import rodrigo.javier.booking.lstHotel.contract.LstHotelContract;
+import rodrigo.javier.booking.retrofit.ApiClient;
 import rodrigo.javier.booking.utils.Post;
 
 public class FieldSearchModel implements FieldSearchContract.Model {
 
-    private OnFieldSearchListener onFieldSearchListener;
+    @Override
+    public void getHotelsService(Context context, OnFieldSearchListener onFieldSearchListener, String city) {
+        ApiClient apiClient = new ApiClient(context);
+        final Call<List<Hotel>> request = apiClient.getHotelsByCity(city);
+
+        request.enqueue(new Callback<List<Hotel>>() {
+            @Override
+            public void onResponse(Call<List<Hotel>> call, Response<List<Hotel>> response) {
+
+                if (response != null && response.body() != null){
+                    onFieldSearchListener.onResolve(new ArrayList<>(response.body()));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Hotel>> call, Throwable t) {
+                t.printStackTrace();
+                onFieldSearchListener.onReject(t.getLocalizedMessage());
+            }
+        });
+
+    }
+
+
+
+
+    /*private OnFieldSearchListener onFieldSearchListener;
     private ArrayList<Hotel> lstHotels;
 
     @Override
@@ -25,7 +58,8 @@ public class FieldSearchModel implements FieldSearchContract.Model {
         param.put("ACTION", "HOTEL.FIND_FILTER");
         param.put("CITY", city);
         BackgroundTask task = new BackgroundTask(param);
-        task.execute("http://192.168.0.12:8090/Booking/Controller");
+        task.execute(BuildConfig.SERVER_URL + "Controller");
+        // task.execute("http://192.168.0.13:8090/Booking/Controller");
     }
 
     class BackgroundTask extends AsyncTask<String, Integer, Boolean>{
@@ -63,6 +97,6 @@ public class FieldSearchModel implements FieldSearchContract.Model {
             }
         }
 
-    }
+    }*/
 
 }

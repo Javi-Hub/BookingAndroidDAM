@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,13 +24,17 @@ public class BookedRoomActivity extends AppCompatActivity implements BookedRoomC
     private BookedRoomPresenter presenter;
     private DividerItemDecoration divider;
 
+    public static String TAG = BookedRoomActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booked_room);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         presenter = new BookedRoomPresenter(this);
-        presenter.getHotelsBooked();
+        presenter.getHotelsBooked(this);
 
         // Obtener el Recycler
         recycler = findViewById(R.id.recyclerMoreBooked);
@@ -44,6 +49,7 @@ public class BookedRoomActivity extends AppCompatActivity implements BookedRoomC
     @Override
     public void successMoreBooked(ArrayList<Hotel> hotels) {
         showListBooked(hotels);
+        Log.d(TAG, "[getListHotels Hotel ->]" + hotels.get(0).getName());
     }
 
     @Override
@@ -59,5 +65,10 @@ public class BookedRoomActivity extends AppCompatActivity implements BookedRoomC
         divider = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         recycler.addItemDecoration(divider);
         recycler.setAdapter(adapter);
+    }
+
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

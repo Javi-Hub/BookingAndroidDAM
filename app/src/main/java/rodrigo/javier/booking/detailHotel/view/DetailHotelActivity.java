@@ -1,23 +1,26 @@
 package rodrigo.javier.booking.detailHotel.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import rodrigo.javier.booking.BuildConfig;
 import rodrigo.javier.booking.R;
 import rodrigo.javier.booking.beans.Hotel;
-import rodrigo.javier.booking.detailHotel.contract.DetailHotelContract;
-import rodrigo.javier.booking.detailHotel.presenter.DetailHotelPresenter;
 import rodrigo.javier.booking.lstRoom.view.LstRoomActivity;
 
-public class DetailHotelActivity extends AppCompatActivity implements DetailHotelContract.View {
+public class DetailHotelActivity extends AppCompatActivity {
 
     private ImageView imgDetail;
     private TextView txtDetailHotel;
@@ -28,29 +31,41 @@ public class DetailHotelActivity extends AppCompatActivity implements DetailHote
     private TextView txtDetailCost;
     private TextView txtDetailBooked;
     private Button btDetailButton;
-
-    private DetailHotelPresenter presenter;
+    private RatingBar ratingBar;
+    private Toolbar toolbar;
 
     private String nameHotel = "";
+    private String title;
+    private String dateIn, dateOut, numPeople;
     private Hotel hotel;
+
+    public static String TAG = DetailHotelActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_hotel);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         initComponents();
         //Guardar el nombre del hotel al pulsar la etiqueta seleccionada
         Bundle bundle = getIntent().getExtras();
+        hotel = (Hotel) getIntent().getSerializableExtra("hotel");
+        Log.d(TAG, " [getHotel] Image: " + hotel.getUrlImage());
+        Log.d(TAG, "[getHotel] Name: " + hotel.getName());
+
         if (bundle != null){
             nameHotel = bundle.getString("nameHotel");
+            dateIn = bundle.getString("dateIn");
+            dateOut = bundle.getString("dateOut");
+            numPeople = bundle.getString("numPeople");
         }
+
+        selectedHotel();
+
         //Recoger el hotel seleccionado
-        hotel = new Hotel();
-        hotel.setName(nameHotel);
-        //Comunicar con la clase Presenter desde el View
-        presenter = new DetailHotelPresenter(this);
-        presenter.getHotel(hotel);
+        /*hotel = new Hotel();
+        hotel.setName(nameHotel);*/
 
         btDetailButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +73,9 @@ public class DetailHotelActivity extends AppCompatActivity implements DetailHote
                 Intent intent = new Intent(getBaseContext(), LstRoomActivity.class);
                 intent.putExtra("nameHotel", hotel.getName());
                 intent.putExtra("city", hotel.getCity());
+                intent.putExtra("dateIn", dateIn);
+                intent.putExtra("dateOut", dateOut);
+                intent.putExtra("numPeople", numPeople);
                 startActivity(intent);
             }
         });
@@ -67,28 +85,40 @@ public class DetailHotelActivity extends AppCompatActivity implements DetailHote
     public void initComponents(){
         imgDetail = findViewById(R.id.imgDetail);
         txtDetailHotel = findViewById(R.id.txtDetailHotel);
-        txtDetailCategory = findViewById(R.id.txtDetailCategory);
         txtDetailRate = findViewById(R.id.txtDetailRate);
         txtDetailCity = findViewById(R.id.txtDetailCity);
         txtDetailDescription = findViewById(R.id.txtDetailDescription);
         txtDetailCost = findViewById(R.id.txtDetailCost);
         txtDetailBooked = findViewById(R.id.txtDetailBooked);
         btDetailButton = findViewById(R.id.btDetailButton);
+        ratingBar = findViewById(R.id.detail_rating_bar);
+        toolbar = findViewById(R.id.toolbar);
     }
 
     //Mostrar los datos del hotel seleccionado
-    @Override
-    public void selectedHotel(Hotel hotel) {
-        String urlImage ="http://192.168.0.12:8090/Booking/images/" +
+    public void selectedHotel() {
+        AlphaAnimation alpha = new AlphaAnimation(0.3f, 1.0f);
+        alpha.setDuration(1000);
+        alpha.setStartOffset(1000);
+        alpha.setFillAfter(true);
+        String urlImage = BuildConfig.SERVER_URL + "images/" +
                 hotel.getUrlImage() + ".png";
         Picasso.get().load(urlImage).into(imgDetail);
+        imgDetail.startAnimation(alpha);
         txtDetailHotel.setText(hotel.getName());
-        txtDetailCategory.setText("Categoría: " + hotel.getCategory());
-        txtDetailRate.setText("Valoración: " + hotel.getRate());
+        ratingBar.setRating(hotel.getCategory());
+        txtDetailRate.setText(String.valueOf(hotel.getRate()));
         txtDetailCity.setText(hotel.getCity());
         txtDetailDescription.setText(hotel.getDescription());
-        txtDetailBooked.setText("Reservas: " + hotel.getBookedRooms());
-        txtDetailCost.setText("Precio Medio: " + hotel.getAveragePrize());
+        txtDetailBooked.setText(String.valueOf(hotel.getBookedRooms()));
+        txtDetailCost.setText(String.valueOf(hotel.getAveragePrize()));
+        title = hotel.getName();
+        toolbar.setTitle(title);
 
+    }
+
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

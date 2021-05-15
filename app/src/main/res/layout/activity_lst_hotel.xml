@@ -1,46 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:weightSum="100"
+    android:gravity="center"
     tools:context=".lstHotel.view.LstHotelActivity">
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/activity_lst_hotels_fragment_container"
+        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:weightSum="100"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/activity_lst_hotel_nav"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/botton_navigation_menu">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <!--LAYOUT ERROR-->
+    <LinearLayout
+        android:id="@+id/activity_lst_hotels_error_loading"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="50"
-            android:text="@string/order"
-            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/error_loading_data"
             android:gravity="center"
-            android:textStyle="bold"
-            android:fontFamily="@string/font_family"
             android:textSize="20sp"
-            android:textColor="@color/black"/>
+            android:fontFamily="@string/font_family"
+            android:textStyle="bold"/>
 
-        <Spinner
-            android:id="@+id/spinFilter"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="50"
-            android:entries="@array/spinFilter"
-            android:outlineSpotShadowColor="@color/black" />
+        <Button
+            android:id="@+id/button_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/layout_error_button"
+            android:textColor="@color/white"
+            android:layout_marginTop="8dp"/>
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerLstHotels"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="90"/>
+    <!--LOADING PROGRESSBAR-->
+    <ProgressBar
+        android:id="@+id/activity_lst_hotels_loading_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyle"/>
 
-</LinearLayout>
+</RelativeLayout>

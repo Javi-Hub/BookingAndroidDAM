@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_nav_category_hotels"
+        android:enabled="true"
+        android:title="@string/menu_nav_category_hotels"
+        android:icon="@drawable/ic_menu_nav_all_hotels"/>
+    <item
+        android:id="@+id/menu_nav_rate_hotels"
+        android:enabled="true"
+        android:title="@string/menu_nav_rate_hotels"
+        android:icon="@drawable/ic_menu_nav_rated_hotels"/>
+    <item
+        android:id="@+id/menu_nav_price_desc_hotels"
+        android:enabled="true"
+        android:title="@string/menu_nav_price_desc"
+        android:icon="@drawable/ic_menu_nav_down_hotels"/>
+    <item
+        android:id="@+id/menu_nav_price_asc_hotels"
+        android:enabled="true"
+        android:title="@string/menu_nav_price_asc"
+        android:icon="@drawable/ic_menu_nav_top_hotels"/>
+</menu>

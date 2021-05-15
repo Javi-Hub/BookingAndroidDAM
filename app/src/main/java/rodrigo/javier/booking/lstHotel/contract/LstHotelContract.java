@@ -1,5 +1,7 @@
 package rodrigo.javier.booking.lstHotel.contract;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 import rodrigo.javier.booking.beans.Hotel;
@@ -13,11 +15,11 @@ public interface LstHotelContract {
     }
 
      interface Presenter {
-        void getHotels();
+        void getHotels(Context context);
     }
 
      interface Model {
-        void getHotelsService(OnLstHotelsListener onLstHotelsListener);
+        void getHotelsService(Context context, OnLstHotelsListener onLstHotelsListener);
 
         interface OnLstHotelsListener {
             void onResolve(ArrayList<Hotel> lstHotels);

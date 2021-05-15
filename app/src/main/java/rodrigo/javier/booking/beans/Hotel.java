@@ -4,11 +4,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Hotel {
+public class Hotel implements Serializable {
 
     private static ArrayList<Hotel> list;
     private static final String ID = "id";
@@ -144,7 +145,7 @@ public class Hotel {
         return list;
     }
 
-    //Método estatico que devuelve la lista de hoteles ordenados por categoría de mayor a menor
+    /*//Método estatico que devuelve la lista de hoteles ordenados por categoría de mayor a menor
     public static ArrayList<Hotel> getListFilterCategory() {
         Collections.sort(list, new Comparator<Hotel>() {
             @Override
@@ -186,7 +187,7 @@ public class Hotel {
             }
         });
         return list;
-    }
+    }*/
 
     //Método estatico que devuelve la lista de hoteles ordenados con más reservas a menos
     public static ArrayList<Hotel> getListMoreBooked() {
@@ -199,4 +200,13 @@ public class Hotel {
         return list;
     }
 
+    public static ArrayList<Hotel> getListFilterCategory(ArrayList<Hotel> list) {
+        Collections.sort(list, new Comparator<Hotel>() {
+            @Override
+            public int compare(Hotel hotel_1, Hotel hotel_2) {
+                return new Integer(hotel_2.getCategory()).compareTo(new Integer(hotel_1.getCategory()));
+            }
+        });
+        return list;
+    }
 }
