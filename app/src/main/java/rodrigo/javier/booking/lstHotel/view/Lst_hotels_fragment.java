@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,8 @@ public class Lst_hotels_fragment extends Fragment {
 
     private static final String HOTELS = "param1";
 
+    public static String TAG = Lst_hotels_fragment.class.getSimpleName();
+
     public Lst_hotels_fragment() {
 
     }
@@ -42,6 +45,7 @@ public class Lst_hotels_fragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             allHotels =(ArrayList<Hotel>) getArguments().getSerializable(HOTELS);
+            Log.d(TAG, "[get allHotels Name -> ]" + allHotels.get(0).getName());
         }
     }
 

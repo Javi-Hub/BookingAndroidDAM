@@ -115,8 +115,6 @@ public class FieldSearchAdapter extends RecyclerView.Adapter<FieldSearchAdapter.
     @Override
     public void onBindViewHolder(@NonNull HotelViewHolder holder, int position) {
         Hotel hotel = lstHotels.get(position);
-        /*String urlImage = "http://192.168.0.13:8090/Booking/images/" +
-                lstHotels.get(position).getUrlImage() + ".png";*/
         String urlImage = BuildConfig.SERVER_URL + "images/" +
                 lstHotels.get(position).getUrlImage() + ".png";
         Picasso.get().load(urlImage).into(holder.image);

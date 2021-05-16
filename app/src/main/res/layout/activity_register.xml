@@ -13,13 +13,19 @@
     <ImageView
         android:id="@+id/imgRegister"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         app:srcCompat="@drawable/logo" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="@dimen/text_login"
+        android:id="@+id/txtInputLayoutRegisterName"
+        android:layout_width="@dimen/box_login"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="@dimen/spaceBetween"
+        android:clickable="true"
+        app:boxStrokeColor="@color/button"
+        app:endIconMode="clear_text"
+        app:hintTextColor="@color/button"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">    >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -33,9 +39,15 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInputLayoutRegisterSurename"
         android:layout_width="@dimen/text_login"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="@dimen/spaceBetween"
+        android:clickable="true"
+        app:boxStrokeColor="@color/button"
+        app:endIconMode="clear_text"
+        app:hintTextColor="@color/button"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">    >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -49,9 +61,15 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInputLayoutRegisterEmail"
         android:layout_width="@dimen/text_login"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="@dimen/spaceBetween"
+        android:clickable="true"
+        app:boxStrokeColor="@color/button"
+        app:endIconMode="clear_text"
+        app:hintTextColor="@color/button"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">    >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -65,9 +83,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtInputLayoutRegisterPassword"
         android:layout_width="@dimen/text_login"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="@dimen/spaceBetween"
+        android:clickable="true"
+        app:boxStrokeColor="@color/button"
+        app:endIconMode="clear_text"
+        app:hintTextColor="@color/button"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">    >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -79,7 +103,6 @@
             android:inputType="textPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <Button
         android:id="@+id/btRegister"

@@ -59,7 +59,6 @@ public class LstHotelAdapter extends RecyclerView.Adapter<LstHotelAdapter.HotelV
            image = view.findViewById(R.id.imgPhoto);
            icon = view.findViewById(R.id.card_favorite_icon);
            name = view.findViewById(R.id.txtName);
-           //category = view.findViewById(R.id.txtCategory);
            city = view.findViewById(R.id.txtCity);
            rate = view.findViewById(R.id.txtRate);
            prize = view.findViewById(R.id.txtPrize);
@@ -107,13 +106,10 @@ public class LstHotelAdapter extends RecyclerView.Adapter<LstHotelAdapter.HotelV
     @Override
     public void onBindViewHolder(@NonNull HotelViewHolder holder, int position) {
         Hotel hotel = lstHotels.get(position);
-        /*String urlImage = "http://192.168.0.13:8090/Booking/images/" +
-                lstHotels.get(position).getUrlImage() + ".png";*/
         String urlImage = BuildConfig.SERVER_URL + "images/" +
                 lstHotels.get(position).getUrlImage() + ".png";
         Picasso.get().load(urlImage).into(holder.image);
         holder.name.setText(hotel.getName());
-        //holder.category.setText(String.valueOf(hotel.getCategory()));
         holder.city.setText(hotel.getCity());
         holder.prize.setText(hotel.getAveragePrize() + "€");
         holder.rate.setText(String.valueOf(hotel.getRate()));

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ public class Lst_hotels_rate_fragment extends Fragment {
 
     private static final String RATE = "param1";
 
+    public static String TAG = Lst_hotels_rate_fragment.class.getSimpleName();
+
     public Lst_hotels_rate_fragment() {
     }
 
@@ -43,6 +46,7 @@ public class Lst_hotels_rate_fragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             rate = (ArrayList<Hotel>) getArguments().getSerializable(RATE);
+            Log.d(TAG, "[getRate list Name -> ]" + rate.get(0).getName());
         }
     }
 

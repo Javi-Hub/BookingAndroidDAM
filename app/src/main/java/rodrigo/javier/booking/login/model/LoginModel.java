@@ -21,6 +21,8 @@ import rodrigo.javier.booking.utils.Post;
 
 public class LoginModel implements LoginContract.Model {
 
+    public static String TAG = LoginModel.class.getSimpleName();
+
     @Override
     public void getUserService(Context context, OnLoginListener onLoginListener, User user) {
         ApiClient apiClient = new ApiClient(context);
@@ -31,7 +33,7 @@ public class LoginModel implements LoginContract.Model {
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 if (response != null && !response.body().isEmpty()){
                         onLoginListener.onResolve(response.body().get(0));
-                    System.out.println(response.body().get(0).getEmail());
+                    Log.d(TAG, "[getEmailUser -> ]" + user.getEmail());
                 } else {
                     onLoginListener.onReject("Usuario no valido");
                     System.out.println("ERROR");
@@ -47,56 +49,4 @@ public class LoginModel implements LoginContract.Model {
         });
     }
 
-
-
-    /*private OnLoginListener onLoginListener;
-    private ArrayList<User> lstUser;
-
-    @Override
-    public void getUserService(OnLoginListener onLoginListener, User user) {
-        this.onLoginListener = onLoginListener;
-        HashMap<String, String> param = new HashMap<>();
-        param.put("ACTION", "USER.VALIDATE");
-        param.put("EMAIL", user.getEmail());
-        param.put("PASSWORD", user.getPassword());
-        BackgroundTask task = new BackgroundTask(param);
-        task.execute(BuildConfig.SERVER_URL + "Controller");
-        //task.execute("http://192.168.0.13:8090/Booking/Controller");
-     }
-
-    class BackgroundTask extends AsyncTask<String, Integer, Boolean> {
-
-        private HashMap<String, String> parameters = null;
-
-        public BackgroundTask(HashMap<String, String> parameters) {
-            super();
-            this.parameters = parameters;
-        }
-
-        @Override
-        protected Boolean doInBackground(String... params) {
-
-            String url_select = params[0];
-            try {
-                Post post = new Post();
-                JSONArray result = post.getServerDataPost(parameters, url_select);
-                lstUser = User.getArrayListFromJSon(result);
-            } catch (Exception e) {
-                Log.e("log_tag", "Error in http connection " + e.toString());
-            }
-
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(Boolean resp) {
-            try {
-                if(resp){
-                    onLoginListener.onResolve(lstUser.get(0));
-                }
-            }catch (Exception e) {
-                onLoginListener.onReject("Usuario no valido");
-            }
-        }
-    }*/
 }

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -31,7 +32,8 @@ public class FieldSearchActivity extends AppCompatActivity implements FieldSearc
     private ProgressBar progressBar;
     private Button retryButton;
     private String city, dateIn, dateOut, numPeople;
-    private Hotel hotel;
+
+    public static String TAG = FieldSearchActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class FieldSearchActivity extends AppCompatActivity implements FieldSearc
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
+            Log.d(TAG, "[getBundle DateIn -> ]" + city);
             city = bundle.getString("city");
             dateIn = bundle.getString("dateIn");
             dateOut = bundle.getString("dateOut");

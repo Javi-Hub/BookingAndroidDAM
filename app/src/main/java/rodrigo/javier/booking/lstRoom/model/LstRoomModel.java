@@ -1,6 +1,7 @@
 package rodrigo.javier.booking.lstRoom.model;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,8 @@ import rodrigo.javier.booking.retrofit.ApiClient;
 
 public class LstRoomModel implements LstRoomContract.Model {
 
+    public static String TAG = LstRoomModel.class.getSimpleName();
+
     @Override
     public void getRoomsService(Context context, OnLstRoomsListener onLstRoomsListener, Hotel hotel) {
         ApiClient apiClient = new ApiClient(context);
@@ -25,6 +28,7 @@ public class LstRoomModel implements LstRoomContract.Model {
             public void onResponse(Call<List<Room>> call, Response<List<Room>> response) {
                 if (response != null && response.body() != null){
                     onLstRoomsListener.onResolve(new ArrayList<>(response.body()));
+                    Log.d(TAG, "[getListRooms Name -> ]" + response.body().get(0).getHotelName());
                 }
             }
 
@@ -36,55 +40,4 @@ public class LstRoomModel implements LstRoomContract.Model {
         });
     }
 
-
-
-    /*private OnLstRoomsListener onLstRoomsListener;
-    private ArrayList<Room> lstRooms;
-
-    @Override
-    public void getRoomsService(OnLstRoomsListener onLstRoomsListener, Hotel hotel) {
-        this.onLstRoomsListener = onLstRoomsListener;
-        HashMap<String, String> param = new HashMap<>();
-        param.put("ACTION", "ROOM.FIND_FILTER");
-        param.put("NAME_HOTEL", hotel.getName());
-        BackgroundTask task = new BackgroundTask(param);
-        task.execute(BuildConfig.SERVER_URL + "Controller");
-        //task.execute("http://192.168.0.13:8090/Booking/Controller");
-
-    }
-
-    class BackgroundTask extends AsyncTask<String, Integer, Boolean>{
-        private HashMap<String, String> parameters = null;
-
-        public BackgroundTask(HashMap<String, String> parameters) {
-            this.parameters = parameters;
-        }
-
-        @Override
-        protected Boolean doInBackground(String... params) {
-            String url_select = params[0];
-            try {
-                Post post = new Post();
-                JSONArray result = post.getServerDataPost(parameters, url_select);
-                lstRooms = Room.getArrayListFromJSon(result);
-
-            } catch (Exception e) {
-                Log.e("log_tag", "Error in http connection " + e.toString());
-            }
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(Boolean resp) {
-            try {
-                if(resp){
-                if (lstRooms != null && lstRooms.size() > 0){
-                        onLstRoomsListener.onResolve(lstRooms);
-                    }
-                }
-            }catch (Exception e) {
-                onLstRoomsListener.onReject("Fallo: Listar Hoteles");
-            }
-        }
-    }*/
 }

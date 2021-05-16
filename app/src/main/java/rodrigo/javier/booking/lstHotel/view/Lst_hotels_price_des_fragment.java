@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,9 @@ public class Lst_hotels_price_des_fragment extends Fragment {
 
     private static final String PRICE_DESC = "param1";
 
+    public static String TAG = Lst_hotels_price_des_fragment.class.getSimpleName();
+
+
     public Lst_hotels_price_des_fragment() {
 
     }
@@ -43,7 +47,9 @@ public class Lst_hotels_price_des_fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
+
             priceDesc = (ArrayList<Hotel>) getArguments().getSerializable(PRICE_DESC);
+            Log.d(TAG, "[getPriceDesc list Name -> ]" + priceDesc.get(0).getName());
         }
     }
 

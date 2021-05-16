@@ -9,16 +9,16 @@ import rodrigo.javier.booking.beans.Room;
 
 public interface LstRoomContract {
 
-    public interface View {
+    interface View {
         void success(ArrayList<Room> lstRooms);
         void error (String error);
     }
 
-    public interface Presenter {
+    interface Presenter {
         void getRooms(Context context, Hotel hotel);
     }
 
-    public interface Model {
+    interface Model {
         void getRoomsService(Context context, OnLstRoomsListener onLstRoomsListener, Hotel hotel);
 
         interface OnLstRoomsListener{

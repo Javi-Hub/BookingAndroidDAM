@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import rodrigo.javier.booking.R;
 import rodrigo.javier.booking.SplashEndActivity;
@@ -24,6 +27,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     private EditText edtSurenameRegister;
     private EditText edtEmailRegister;
     private EditText edtPasswordRegister;
+    private TextInputLayout txtInputLayoutRegisterName, txtInputLayoutRegisterSurename,
+            txtInputLayoutRegisterEmail, txtInputLayoutRegisterPassword;
     private Button btRegister;
 
     private String idRoom;
@@ -31,6 +36,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     private String city;
     private String capacity;
     private String prize;
+
+    public static String TAG = RegisterActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
             city = bundle.getString("city");
             capacity = bundle.getString("capacity");
             prize = bundle.getString("prize");
+            Log.d(TAG, "[getBundle nameHotel -> ]" + nameHotel);
         }
 
         presenter = new RegisterPresenter(this);
@@ -82,11 +90,18 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
         edtSurenameRegister = findViewById(R.id.edtSurenameRegister);
         edtEmailRegister = findViewById(R.id.edtEmailRegister);
         edtPasswordRegister = findViewById(R.id.edtPasswordRegister);
+        txtInputLayoutRegisterName = findViewById(R.id.txtInputLayoutRegisterName);
+        txtInputLayoutRegisterSurename = findViewById(R.id.txtInputLayoutRegisterSurename);
+        txtInputLayoutRegisterEmail = findViewById(R.id.txtInputLayoutRegisterEmail);
+        txtInputLayoutRegisterPassword = findViewById(R.id.txtInputLayoutRegisterPassword);
         btRegister = findViewById(R.id.btRegister);
     }
 
     public void errorRegister(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        txtInputLayoutRegisterName.setError(message);
+        txtInputLayoutRegisterSurename.setError(message);
+        txtInputLayoutRegisterEmail.setError(message);
+        txtInputLayoutRegisterPassword.setError(message);
     }
 
     @Override

@@ -62,10 +62,7 @@ public class DetailHotelActivity extends AppCompatActivity {
         }
 
         selectedHotel();
-
-        //Recoger el hotel seleccionado
-        /*hotel = new Hotel();
-        hotel.setName(nameHotel);*/
+        Log.d(TAG, "[getHotel] Name -> " + hotel.getName());
 
         btDetailButton.setOnClickListener(new View.OnClickListener() {
             @Override

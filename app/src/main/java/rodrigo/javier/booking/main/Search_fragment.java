@@ -1,5 +1,6 @@
 package rodrigo.javier.booking.main;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -119,6 +120,7 @@ public class Search_fragment extends Fragment {
                 int year = calendar.get(Calendar.YEAR);
                 // DatePickerDialog
                 pickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         if (dayOfMonth < 10 && monthOfYear < 9)

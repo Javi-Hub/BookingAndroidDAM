@@ -92,8 +92,6 @@ public class LstRoomAdapter extends RecyclerView.Adapter<LstRoomAdapter.RoomView
     @Override
     public void onBindViewHolder(@NonNull RoomViewHolder holder, int position) {
         Room room = lstRooms.get(position);
-        /*String urlImage = "http://192.168.0.13:8090/Booking/images/" +
-                lstRooms.get(position).getUrlImage() + ".png";*/
         String urlImage = BuildConfig.SERVER_URL + "images/" +
                 lstRooms.get(position).getUrlImage() + ".png";
         Picasso.get().load(urlImage).into(holder.image);

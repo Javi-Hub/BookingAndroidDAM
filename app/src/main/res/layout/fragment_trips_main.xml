@@ -94,6 +94,4 @@
         app:icon="@drawable/ic_clock_trips_button"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"/>
 
-
-
 </RelativeLayout>

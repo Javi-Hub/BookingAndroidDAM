@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/splashScreen"
+    android:background="@color/white"
     tools:context=".detailRoom.view.DetailRoomActivity">
 
     <RelativeLayout
@@ -178,7 +178,7 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:inputType="number"
             android:textSize="@dimen/header_"
             android:textColor="@color/black"
@@ -213,6 +213,7 @@
             android:id="@+id/edtDetailRoomDateIn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:textSize="@dimen/body"
             android:textColor="@color/black"
             android:fontFamily="@string/font_family"
@@ -251,6 +252,7 @@
             android:id="@+id/edtDetailRoomDateOut"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:textSize="@dimen/body"
             android:textColor="@color/black"
             android:fontFamily="@string/font_family"
@@ -365,273 +367,3 @@
 
 </RelativeLayout>
 
-<!--********************************************-->
-
-<!--
-    <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-android:background="@color/splashScreen"
-android:weightSum="100"
-android:padding="@dimen/general_padding"
-tools:context=".detailRoom.view.DetailRoomActivity">
-
-
-<ImageView
-    android:id="@+id/imgDetailRoom"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_marginTop="@dimen/search"
-    android:layout_weight="35"
-    android:background="@drawable/room"
-    android:layout_margin="@dimen/spaceBetween"/>
-
-<TextView
-    android:id="@+id/txtDetailRoomHotel"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="8"
-    android:layout_marginTop="@dimen/spaceBetween"
-    android:gravity="center"
-    android:fontFamily="@string/font_family"
-    android:text="@string/hotel_name"
-    android:autoSizeTextType="uniform"
-    android:textColor="@color/name_hotel" />
-
-<TextView
-    android:id="@+id/txtDetailRoomCity"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="5"
-    android:layout_marginTop="@dimen/spaceBetween"
-    android:gravity="center"
-    android:fontFamily="@string/font_family"
-    android:text="@string/hotel_city"
-    android:textColor="@color/black"
-    android:textSize="@dimen/header" />
-
-<LinearLayout
-    android:layout_width="200dp"
-    android:layout_height="0dp"
-    android:layout_weight="5"
-    android:weightSum="2"
-    android:layout_gravity="center"
-    android:layout_marginTop="8dp">
-
-    <TextView
-        android:id="@+id/NumberRoom"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1.5"
-        android:gravity="center"
-        android:fontFamily="@string/font_family"
-        android:text="@string/detail_room_number"
-        android:textColor="@color/black"
-        android:textSize="@dimen/body"
-        android:textAlignment="textEnd"
-        tools:ignore="RtlCompat" />
-
-    <TextView
-        android:id="@+id/txtDetailRoomNumber"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.5"
-        android:gravity="center"
-        android:fontFamily="@string/font_family"
-        android:textColor="@color/black"
-        android:textSize="@dimen/body"/>
-
-</LinearLayout>
-
-<View
-    android:layout_width="fill_parent"
-    android:layout_height="1dp"
-    android:background="@color/button"/>
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="8"
-    android:orientation="horizontal"
-    android:weightSum="2"
-    android:layout_marginTop="@dimen/spaceBetween">
-
-
-    <TextView
-
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="@string/detail_num_people"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/header"
-        android:textSize="@dimen/header_"
-        android:textColor="@color/black"
-        android:fontFamily="@string/font_family" />
-
-    <EditText
-        android:id="@+id/edtDetailRoomPeople"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:inputType="number"
-        android:textSize="@dimen/header_"
-        android:textColor="@color/black"
-        android:fontFamily="@string/font_family" />
-
-    &lt;!&ndash;<TextView
-        android:id="@+id/txtNumberDays"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.4"
-        android:text="@string/detail_days"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/header"
-        android:textSize="@dimen/header_"
-        android:textColor="@color/black"
-        android:fontFamily="@string/font_family" />
-
-    <EditText
-        android:id="@+id/edtDetailRoomDays"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="0.7"
-        android:inputType="number"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/header"
-        android:textSize="@dimen/header_"
-        android:textColor="@color/black"
-        android:fontFamily="@string/font_family" />&ndash;&gt;
-
-</LinearLayout>
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="8"
-    android:orientation="horizontal"
-    android:weightSum="2">
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:text="@string/detail_room_date_in"
-        android:paddingLeft="@dimen/header"
-        android:textSize="@dimen/header_"
-        android:textColor="@color/black"
-        android:fontFamily="@string/font_family"/>
-
-    <EditText
-        android:id="@+id/edtDetailRoomDateIn"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:textSize="@dimen/header_"
-        android:textColor="@color/black"
-        android:fontFamily="@string/font_family"
-        android:focusable="false"/>
-
-
-</LinearLayout>
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="8"
-    android:orientation="horizontal"
-    android:weightSum="2">
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:text="@string/detail_room_date_out"
-        android:paddingLeft="@dimen/header"
-        android:textSize="@dimen/header_"
-        android:textColor="@color/black"
-        android:fontFamily="@string/font_family"/>
-
-    <EditText
-        android:id="@+id/edtDetailRoomDateOut"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:textSize="@dimen/header_"
-        android:textColor="@color/black"
-        android:fontFamily="@string/font_family"
-        android:focusable="false"/>
-
-
-</LinearLayout>
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="8"
-    android:weightSum="2"
-    android:orientation="horizontal">
-
-    <TextView
-        android:id="@+id/txtNumberDays"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="@string/detail_nights"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/header"
-        android:textSize="@dimen/header_"
-        android:textColor="@color/black"
-        android:fontFamily="@string/font_family" />
-
-    <TextView
-        android:id="@+id/txtDetailRoomDays"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:fontFamily="@string/font_family"
-        android:gravity="center_vertical"
-        android:paddingLeft="@dimen/header"
-        android:textColor="@color/black"
-        android:textSize="@dimen/header_" />
-
-</LinearLayout>
-
-<TextView
-    android:id="@+id/txtDetailRoomCost"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="5"
-    android:layout_marginTop="@dimen/spaceBetween"
-    android:gravity="center"
-    android:fontFamily="@string/font_family"
-    android:text="@string/detail_cost"
-    android:textColor="@color/detail_cost"
-    android:textStyle="bold"
-    android:textSize="@dimen/header" />
-
-<Button
-    android:id="@+id/btEndBook"
-    android:layout_width="@dimen/book_room_button"
-    android:layout_height="0dp"
-    android:layout_weight="11"
-    android:layout_margin="@dimen/spaceBetween"
-    android:layout_gravity="center"
-    android:shadowRadius="@android:integer/config_longAnimTime"
-    android:fontFamily="@string/font_family_other"
-    android:text="@string/book_room_button"
-    android:textSize="@dimen/font_size_button"
-    android:textStyle="bold"
-    android:textColor="@color/white"
-    android:backgroundTint="@color/button" />
-
-
-</LinearLayout>-->

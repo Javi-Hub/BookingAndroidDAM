@@ -145,50 +145,6 @@ public class Hotel implements Serializable {
         return list;
     }
 
-    /*//Método estatico que devuelve la lista de hoteles ordenados por categoría de mayor a menor
-    public static ArrayList<Hotel> getListFilterCategory() {
-        Collections.sort(list, new Comparator<Hotel>() {
-            @Override
-            public int compare(Hotel hotel_1, Hotel hotel_2) {
-                return new Integer(hotel_2.getCategory()).compareTo(new Integer(hotel_1.getCategory()));
-            }
-        });
-        return list;
-    }
-
-    //Método estatico que devuelve la lista de hoteles ordenados por valoración de mayor a menor
-    public static ArrayList<Hotel> getListFilterRate() {
-        Collections.sort(list, new Comparator<Hotel>() {
-            @Override
-            public int compare(Hotel hotel_1, Hotel hotel_2) {
-                return new Double(hotel_2.getRate()).compareTo(new Double(hotel_1.getRate()));
-            }
-        });
-        return list;
-    }
-
-    //Método estatico que devuelve la lista de hoteles ordenados por precio de más caro a más barato
-    public static ArrayList<Hotel> getListFilterPrizeDesc() {
-        Collections.sort(list, new Comparator<Hotel>() {
-            @Override
-            public int compare(Hotel hotel_1, Hotel hotel_2) {
-                return new Double(hotel_2.getAveragePrize()).compareTo(new Double(hotel_1.getAveragePrize()));
-            }
-        });
-        return list;
-    }
-
-    //Método estatico que devuelve la lista de hoteles ordenados por precio de más barato a más caro
-    public static ArrayList<Hotel> getListFilterPrizeAsc() {
-        Collections.sort(list, new Comparator<Hotel>() {
-            @Override
-            public int compare(Hotel hotel_1, Hotel hotel_2) {
-                return new Double(hotel_1.getAveragePrize()).compareTo(new Double(hotel_2.getAveragePrize()));
-            }
-        });
-        return list;
-    }*/
-
     //Método estatico que devuelve la lista de hoteles ordenados con más reservas a menos
     public static ArrayList<Hotel> getListMoreBooked() {
         Collections.sort(list, new Comparator<Hotel>() {

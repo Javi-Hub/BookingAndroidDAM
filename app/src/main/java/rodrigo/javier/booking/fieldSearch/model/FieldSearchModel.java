@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.LongSummaryStatistics;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,10 +23,13 @@ import rodrigo.javier.booking.utils.Post;
 
 public class FieldSearchModel implements FieldSearchContract.Model {
 
+    public static String TAG = FieldSearchModel.class.getSimpleName();
+
     @Override
     public void getHotelsService(Context context, OnFieldSearchListener onFieldSearchListener, String city) {
         ApiClient apiClient = new ApiClient(context);
         final Call<List<Hotel>> request = apiClient.getHotelsByCity(city);
+        Log.d(TAG, "[getCity] -> City " + city);
 
         request.enqueue(new Callback<List<Hotel>>() {
             @Override

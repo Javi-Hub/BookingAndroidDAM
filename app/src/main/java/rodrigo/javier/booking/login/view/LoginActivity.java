@@ -124,8 +124,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void error(String error) {
-        //Toast.makeText(this, error, Toast.LENGTH_LONG).show();
         textInputLayoutEmail.setError(error);
+        textInputLayoutPassword.setErrorEnabled(false);
     }
 
     public void initComponents(){
@@ -138,10 +138,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     public void errorLogin(String message){
-       //Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         textInputLayoutEmail.setError(message);
-        textInputLayoutPassword.setError(message
-        );
+        textInputLayoutPassword.setError(message);
 
     }
 
