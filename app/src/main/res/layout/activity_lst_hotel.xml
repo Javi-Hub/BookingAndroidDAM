@@ -58,6 +58,7 @@
     <!--LOADING PROGRESSBAR-->
     <ProgressBar
         android:id="@+id/activity_lst_hotels_loading_progressBar"
+        android:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="?android:attr/progressBarStyle"/>

@@ -46,8 +46,8 @@ public class Lst_hotels_category_fragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            Log.d(TAG, "[getListCategory Name -> ]" + category.get(0).getName());
             category = (ArrayList<Hotel>) getArguments().getSerializable(CATEGORY);
+            Log.d(TAG, "[getListCategory Name -> ]" + category.get(0).getName());
         }
     }
 
